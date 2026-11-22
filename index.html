@@ -767,7 +767,7 @@ a.il{color:#9fd8ff;text-decoration:underline;text-underline-offset:3px}
 </section>
 
 <!-- ABOUT ME -->
-<section class="slide m-violet" data-title="About your trainer" data-sec="Welcome">
+<section class="slide m-violet" data-title="About your trainer" data-sec="Welcome" data-hub>
   <div class="about">
     <div class="ab-photo r pop">
       <div class="ab-frame"><img src="assets/abhinaya.jpg" alt="Abhinaya Nair"></div>
@@ -780,7 +780,7 @@ a.il{color:#9fd8ff;text-decoration:underline;text-underline-offset:3px}
       <h2 class="r ab-name">Abhinaya <span class="grad">Nair</span></h2>
       <p class="ab-role r">AI Developer &amp; AI Strategy Consultant · Corporate AI Trainer</p>
       <div class="ab-stats">
-        <div class="ab-st r"><b><span class="count" data-to="4000">0</span>+</b><span>professionals trained</span></div>
+        <div class="ab-st r"><b><span class="count" data-to="5000">0</span>+</b><span>professionals trained</span></div>
         <div class="ab-st r"><b><span class="count" data-to="30">0</span>+</b><span>corporate AI programs</span></div>
         <div class="ab-st r"><b><span class="count" data-to="87">0</span>%</b><span>of CHROs at IISc shipped an AI solution in 60 days</span></div>
       </div>
@@ -1673,10 +1673,13 @@ const ROTS=[-5,4,-3,6,-4,3,-6,5,-2,4], ICOLS=['#8b6cff','#2ee6a8','#ff6b4a','#ff
 function rotP(px,py,deg){const a=deg*Math.PI/180;return[px*Math.cos(a)-py*Math.sin(a),px*Math.sin(a)+py*Math.cos(a)]}
 function buildCanvas(){
   canvasEl=document.createElement('div');canvasEl.id='canvas';stage.prepend(canvasEl);
-  slides.forEach((s,i)=>{if(i===0)return;const sec=s.dataset.sec;let g=groups[groups.length-1];if(!g||g.name!==sec){g={name:sec,idx:[]};groups.push(g)}g.idx.push(i)});
+  slides.forEach((s,i)=>{if(i===0||s.dataset.hub!==undefined)return;const sec=s.dataset.sec;let g=groups[groups.length-1];if(!g||g.name!==sec){g={name:sec,idx:[]};groups.push(g)}g.idx.push(i)});
   groups.forEach((g,k)=>{const n=g.idx.length;g.cols=Math.ceil(Math.sqrt(n));g.rows=Math.ceil(n/g.cols);g.gw=g.cols*SW+(g.cols-1)*GAP;g.gh=g.rows*SH+(g.rows-1)*GAP;
     g.fs=Math.round(Math.min(640,Math.max(360,g.gw*0.1)));g.head=g.fs*1.45;g.r=Math.hypot(g.gw/2,g.gh/2+g.head/2)+480;g.rot=ROTS[k%ROTS.length];g.col=ICOLS[k%ICOLS.length]});
-  const N=groups.length, hubR=1500;
+  const N=groups.length;
+  const hubList=[0].concat(slides.map((x,i)=>i).filter(i=>i>0&&slides[i].dataset.hub!==undefined));
+  const hubTot=hubList.length*SH+(hubList.length-1)*140;
+  const hubR=Math.max(1500,Math.hypot(SW/2,hubTot/2)+260);canvasEl.hubR=hubR;
   let RY=2000,pos;
   for(;RY<40000;RY+=100){const RX=RY*1.7;pos=groups.map((g,k)=>{const th=(-90+k*360/N)*Math.PI/180;return[RX*Math.cos(th),RY*Math.sin(th)]});
     let ok=true;for(let a=0;a<N&&ok;a++){if(Math.hypot(pos[a][0],pos[a][1])<hubR+groups[a].r+700)ok=false;for(let b=a+1;b<N&&ok;b++)if(Math.hypot(pos[a][0]-pos[b][0],pos[a][1]-pos[b][1])<groups[a].r+groups[b].r+700)ok=false}
@@ -1720,7 +1723,7 @@ function buildCanvas(){
       const lx=-rowW/2+SW/2+c*(SW+GAP), ly=gridTop+SH/2+rr*(SH+GAP);const [ox,oy]=rotP(lx,ly,g.rot);
       slideInfo[si]={x:g.cx+ox,y:g.cy+oy,r:g.rot,g:k}});
   });
-  slideInfo[0]={x:0,y:0,r:0,g:-1};
+  hubList.forEach((si,k)=>{slideInfo[si]={x:0,y:-hubTot/2+SH/2+k*(SH+140),r:0,g:-1}});
   slides.forEach((s,i)=>{const p=slideInfo[i];s.style.left=(p.x-SW/2)+'px';s.style.top=(p.y-SH/2)+'px';s.style.transform='rotate('+p.r+'deg)';canvasEl.appendChild(s)});
   canvasEl.addEventListener('click',e=>{if(document.body.classList.contains('flying'))return;const s=e.target.closest('.slide');if(!s)return;const i=slides.indexOf(s);
     if(mode.kind!=='slide'||i!==cur){e.preventDefault();e.stopPropagation();go(i)}},true);
@@ -1772,7 +1775,7 @@ function flyTo(B,done,M,direct){
 }
 function showIsland(k){if(navLocked())return;const pg=curGroup();slides[cur].classList.remove('active');mode={kind:'island',k};document.body.classList.add('zoomed');flyTo(camIsland(k),null,(pg!==null&&pg!==k)?camFrame(circleOf(pg),circleOf(k)):null);ui()}
 function curGroup(){return mode.kind==='island'?mode.k:mode.kind==='slide'?slideInfo[cur].g:null}
-function circleOf(g){return g===-1?{x:0,y:0,r:1500}:{x:groups[g].cx,y:groups[g].cy,r:groups[g].r}}
+function circleOf(g){return g===-1?{x:0,y:0,r:canvasEl.hubR||1500}:{x:groups[g].cx,y:groups[g].cy,r:groups[g].r}}
 function camFrame(a,b){const minx=Math.min(a.x-a.r,b.x-b.r),maxx=Math.max(a.x+a.r,b.x+b.r),miny=Math.min(a.y-a.r,b.y-b.r),maxy=Math.max(a.y+a.r,b.y+b.r);return{x:(minx+maxx)/2,y:(miny+maxy)/2,r:0,s:Math.min(innerWidth/((maxx-minx)*1.18),innerHeight/((maxy-miny)*1.18))}}
 function showMap(){if(navLocked())return;mode={kind:'map'};document.body.classList.add('zoomed');flyTo(camMap());ui()}
 function advance(){const n=cur+1;if(n>=slides.length)return;const gn=slideInfo[n].g,gc=slideInfo[cur].g;if(gn!==gc&&gn>=0)showIsland(gn);else go(n)}
