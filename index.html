@@ -1733,7 +1733,8 @@ function liveConnect(code){
   if(live.es){live.es.close();live.es=null}
   live.code=code;live.topic=topicFor(code);live.votes={};live.people=new Set();live.rev={};live.mine={};live.follow=true;live.locked=true;
   live.replay=true;live.goBuf=null;
-  setTimeout(()=>{live.replay=false;if(ROLE==='viewer'&&live.goBuf&&(live.follow||live.locked))applyGo(live.goBuf);live.goBuf=null},1600);
+  live.ended=false;live.lastCtl=Date.now();
+  setTimeout(()=>{live.replay=false;if(ROLE==='viewer'&&live.ended){liveEnded(true);return}if(ROLE==='viewer'&&live.goBuf&&(live.follow||live.locked))applyGo(live.goBuf);live.goBuf=null},1600);
   const es=new EventSource(RELAY+live.topic+'/sse?since=all'+(ROLE==='viewer'?'&tags=c':''));live.es=es;
   es.onmessage=ev=>{let d,m;try{d=JSON.parse(ev.data)}catch(e){return}if(d.event&&d.event!=='message')return;try{m=JSON.parse(d.message)}catch(e){return}liveOn(m,d.time||0)};
   if(ROLE==='viewer')liveSend({k:'j',u:live.uid},'j');
@@ -1748,10 +1749,12 @@ function liveOn(m,t){
     else if(m.k==='v'&&pollMap[m.p]&&m.u){(live.votes[m.p]=live.votes[m.p]||{})[m.u]=m.o;live.people.add(m.u);renderPoll(pollMap[m.p]);liveUI()}
     else if(m.k==='r'&&fresh)floatReaction(m.e);
   }else{
+    if(!live.replay)live.lastCtl=Date.now();
     if(m.k==='rev'&&pollMap[m.p]){live.rev[m.p]=1;applyRev(pollMap[m.p],live.replay);renderVPanel()}
     else if(m.k==='lock'){live.locked=!!m.v;if(live.locked){live.follow=true;if(!live.replay&&live.lastGo)applyGo(live.lastGo)}liveUI();if(!live.replay)liveToast(live.locked?'The presenter is guiding the slides':'You can now browse the slides freely')}
     else if(m.k==='go'||m.k==='isl'){live.lastGo=m;if(live.replay)live.goBuf=m;else if(live.follow||live.locked)applyGo(m)}
-    else if(m.k==='end'&&!live.replay){lsSet('jh_join',null);liveDisconnect();liveToast('The presenter ended the live session')}
+    else if(m.k==='end'){if(live.replay)live.ended=true;else liveEnded()}
+    else if(m.k==='hb'&&!live.replay){if(live.lock!==undefined&&m.lock!=null&&live.locked!==!!m.lock){live.locked=!!m.lock;if(live.locked&&live.lastGo)applyGo(live.lastGo);liveUI()}}
   }
 }
 function applyGo(m){live.applying=true;try{if(m.k==='go'){if(m.i!==cur||mode.kind!=='slide')go(m.i);if(m.st!=null)applySteps(slides[m.i],m.st)}else if(m.k==='isl'&&!(mode.kind==='island'&&mode.k===m.g))showIsland(m.g)}finally{live.applying=false}renderVPanel()}
@@ -1874,6 +1877,11 @@ function renderVPanel(){
 addEventListener('resize',()=>renderVPanel());
 function liveSetLock(v){live.lock=v;if(live.topic){liveSend({k:'lock',v},'c');if(v){live.lastSent=null;liveBroadcastPos()}}liveUI();const b=document.getElementById('lvLock');if(b)b.innerHTML=lockLabel();liveToast(v?'Attendees locked to your slides':'Attendees can browse freely')}
 function lockLabel(){return live.lock?'🔒 Attendees: locked to my slides':'🔓 Attendees: free to browse'}
+function liveEnded(late){lsSet('jh_join',null);liveDisconnect();liveToast(late?'This live session has already ended. Browse the slides freely':'The live session has ended. Browse the slides freely')}
+setInterval(()=>{if(!live||!live.topic)return;
+  if(ROLE==='trainer')liveSend({k:'hb',lock:live.lock},'c');
+},120000);
+setInterval(()=>{if(ROLE==='viewer'&&live&&live.topic&&live.locked&&Date.now()-(live.lastCtl||Date.now())>6*60e3){live.locked=false;liveUI();liveToast('The presenter seems offline. You can browse freely')}},30000);
 function liveAuto(){
   document.getElementById('liveModal').addEventListener('click',e=>{if(e.target.id==='liveModal')liveModal(false)});
   document.getElementById('liveBtn').onclick=e=>{e.stopPropagation();liveModal()};
