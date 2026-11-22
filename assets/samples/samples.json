@@ -1,0 +1,84 @@
+{
+ "jds": [
+  {
+   "id": "jd-talent-acquisition",
+   "title": "Talent Acquisition Specialist",
+   "company": "Brightline Technologies",
+   "location": "Gurugram · Hybrid (3 days in office)",
+   "experience": "3–5 years",
+   "ctc": "₹10–14 LPA",
+   "skills": [
+    "End-to-end hiring",
+    "LinkedIn Recruiter",
+    "ATS (Greenhouse/Workday)",
+    "Stakeholder management",
+    "Hiring metrics",
+    "Employer branding"
+   ],
+   "text": "Talent Acquisition Specialist — Brightline Technologies\nLocation: Gurugram · Hybrid (3 days in office) | Experience: 3–5 years | CTC: ₹10–14 LPA\n\nAbout the company\nBrightline Technologies is a 600-person B2B SaaS company building workflow software for logistics teams. We are doubling our engineering and sales teams this year and need a recruiter who can own hiring from first conversation to joining day.\n\nResponsibilities\n- Own end-to-end recruitment for 8–12 open roles at a time across engineering, sales and operations\n- Partner with hiring managers to define role requirements, interview plans and scorecards\n- Source passive candidates through LinkedIn Recruiter, Naukri, referrals and campus networks\n- Screen candidates, coordinate interview loops and keep every candidate informed at each stage\n- Track and improve hiring metrics: time-to-hire, offer-acceptance rate and offer-to-joining ratio\n- Manage offers, salary negotiation and pre-joining engagement to reduce dropouts\n- Maintain clean, compliant data in our ATS (Greenhouse) and share weekly hiring dashboards\n- Contribute to employer branding through LinkedIn content, job posts and campus events\n\nMust-have\n- 3–5 years of end-to-end recruitment experience, ideally in a tech or SaaS company\n- Hands-on with LinkedIn Recruiter and at least one ATS (Greenhouse, Workday, Lever or similar)\n- Proven record of closing technical and non-technical roles within agreed timelines\n- Strong stakeholder management and communication skills\n- Comfort with data: Excel or Google Sheets dashboards for hiring metrics\n- MBA/PGDM in HR or equivalent experience\n\nGood to have\n- Experience with campus hiring programmes\n- Exposure to diversity hiring initiatives\n- Familiarity with AI sourcing tools\n- Employer-branding or recruitment-marketing experience\n\nKey skills: End-to-end hiring, LinkedIn Recruiter, ATS (Greenhouse/Workday), Stakeholder management, Hiring metrics, Employer branding"
+  },
+  {
+   "id": "jd-data-analyst",
+   "title": "Data Analyst",
+   "company": "Finpeak Payments",
+   "location": "Bengaluru · On-site",
+   "experience": "2–4 years",
+   "ctc": "₹12–18 LPA",
+   "skills": [
+    "SQL",
+    "Python (pandas)",
+    "Power BI / Tableau",
+    "A/B testing",
+    "Statistics",
+    "Stakeholder communication"
+   ],
+   "text": "Data Analyst — Finpeak Payments\nLocation: Bengaluru · On-site | Experience: 2–4 years | CTC: ₹12–18 LPA\n\nAbout the company\nFinpeak Payments processes over 5 million UPI and card transactions a day for 40,000 merchants. Our analytics team turns that data into decisions for product, risk and growth teams.\n\nResponsibilities\n- Write efficient SQL to extract and analyse large transaction datasets (100M+ rows)\n- Build and maintain Power BI dashboards for product, growth and risk teams\n- Design and analyse A/B tests for onboarding and checkout experiments\n- Clean, model and analyse data in Python (pandas, NumPy) to answer business questions\n- Define and track core metrics: activation, retention, transaction success rate and churn\n- Present insights and recommendations to non-technical stakeholders\n- Automate recurring reports and improve data quality checks\n\nMust-have\n- 2–4 years of experience as a data or business analyst\n- Strong SQL (joins, window functions, CTEs) and working Python for analysis\n- Experience building dashboards in Power BI or Tableau\n- Solid grasp of statistics and experiment design (A/B testing)\n- Ability to explain findings clearly to business stakeholders\n- Bachelor's degree in engineering, statistics, economics or a related field\n\nGood to have\n- Fintech, payments or e-commerce domain experience\n- Experience with dbt, Airflow or BigQuery\n- Basic knowledge of machine learning (regression, classification)\n- Microsoft PL-300 or Google Data Analytics certification\n\nKey skills: SQL, Python (pandas), Power BI / Tableau, A/B testing, Statistics, Stakeholder communication"
+  },
+  {
+   "id": "jd-digital-marketing",
+   "title": "Digital Marketing Manager",
+   "company": "Leafy Living",
+   "location": "Mumbai · Hybrid",
+   "experience": "4–6 years",
+   "ctc": "₹16–22 LPA",
+   "skills": [
+    "Performance marketing",
+    "Meta & Google Ads",
+    "ROAS / CAC",
+    "SEO",
+    "GA4",
+    "Marketing automation"
+   ],
+   "text": "Digital Marketing Manager — Leafy Living\nLocation: Mumbai · Hybrid | Experience: 4–6 years | CTC: ₹16–22 LPA\n\nAbout the company\nLeafy Living is a fast-growing D2C home and plant-care brand with ₹60 crore annual revenue, selling through its own website and marketplaces. We are looking for a digital marketing manager to scale profitable growth.\n\nResponsibilities\n- Own performance marketing across Meta and Google with a monthly budget of ₹50 lakh+\n- Improve ROAS and reduce customer acquisition cost (CAC) through testing and optimisation\n- Plan and run full-funnel campaigns: prospecting, retargeting and retention\n- Lead SEO and content strategy to grow organic traffic\n- Set up tracking and reporting in GA4 and build weekly performance dashboards\n- Run email and WhatsApp marketing automation for retention and repeat purchase\n- Manage a team of 3 executives and coordinate with creative and agency partners\n\nMust-have\n- 4–6 years in digital or performance marketing, ideally in D2C or e-commerce\n- Hands-on management of Meta Ads and Google Ads budgets of ₹25 lakh+/month\n- Strong command of ROAS, CAC, LTV and conversion-rate metrics\n- Experience with GA4 and marketing dashboards\n- Experience leading a small team\n- Graduate; MBA in Marketing preferred\n\nGood to have\n- Marketplace advertising (Amazon, Flipkart)\n- Marketing automation tools (Klaviyo, MoEngage, WebEngage)\n- SEO tools (Ahrefs, SEMrush)\n- Google Ads and Meta Blueprint certifications\n\nKey skills: Performance marketing, Meta & Google Ads, ROAS / CAC, SEO, GA4, Marketing automation"
+  }
+ ],
+ "resumes": [
+  {
+   "id": "resume-ananya-mehra",
+   "name": "Ananya Mehra",
+   "target": "Talent Acquisition Specialist",
+   "for_jd": "jd-talent-acquisition",
+   "years": "4 years",
+   "text": "ANANYA MEHRA\nGurugram, Haryana · +91 90000 00001 · ananya.mehra@example.com · linkedin.com/in/sample-ananya-mehra\n\nPROFESSIONAL SUMMARY\nTalent Acquisition Specialist with 4 years of end-to-end recruitment experience in SaaS and IT services. Closed 180+ technical and non-technical roles, cut average time-to-hire by 32% and raised offer-to-joining ratio to 91% through structured interview plans, data-driven sourcing and strong stakeholder management.\n\nSKILLS\nRecruitment: End-to-end hiring, technical & non-technical sourcing, interview planning, scorecards, offer negotiation, campus hiring\nTools: LinkedIn Recruiter, Naukri RMS, Greenhouse, Workday, Google Sheets, Excel (pivot tables, dashboards)\nStrengths: Stakeholder management, hiring metrics, employer branding, diversity hiring, candidate experience\n\nEXPERIENCE\nTalent Acquisition Specialist | Quorvex Software Pvt. Ltd., Gurugram | Jun 2023 – Present\n- Led end-to-end hiring for 10–14 concurrent roles across engineering, sales and customer success; closed 96 positions in 2 years\n- Reduced average time-to-hire from 47 to 32 days by introducing structured interview plans and weekly hiring-manager syncs\n- Raised offer-to-joining ratio from 74% to 91% with a pre-joining engagement programme (buddy calls, welcome kits, check-ins)\n- Built a Greenhouse + Google Sheets hiring dashboard tracking funnel conversion, source quality and time-in-stage for 8 hiring managers\n- Spearheaded a referral drive that delivered 38% of all hires and saved ₹18 lakh in agency fees\n- Grew employer-brand reach by 3x through weekly LinkedIn content and 4 campus events at Tier-1 and Tier-2 colleges\n\nRecruitment Executive | HireSphere Consulting, Noida | Jul 2021 – May 2023\n- Sourced and screened 1,200+ candidates for IT-services clients using LinkedIn Recruiter and Naukri RMS\n- Closed 84 roles across Java, QA, data and support functions with a 4.6/5 client satisfaction score\n- Coordinated 300+ interview loops and kept candidate drop-off below 12% through timely communication\n\nEDUCATION\nMBA, Human Resource Management, Amity University, Noida, 2021\nBBA, University of Delhi, 2019\n\nCERTIFICATIONS\n- LinkedIn Recruiter Certification\n- SHRM Essentials of HR Management\n- Google Sheets for Business\n\nACHIEVEMENTS\n- Recruiter of the Year, Quorvex Software (2024)\n- Led company's first diversity hiring cohort: 40% women in 2024 tech hires",
+   "headline": "Talent Acquisition Specialist with 4 years of end-to-end recruitment experience in SaaS and IT services."
+  },
+  {
+   "id": "resume-rohan-iyer",
+   "name": "Rohan Iyer",
+   "target": "Data Analyst",
+   "for_jd": "jd-data-analyst",
+   "years": "3 years",
+   "text": "ROHAN IYER\nBengaluru, Karnataka · +91 90000 00002 · rohan.iyer@example.com · linkedin.com/in/sample-rohan-iyer\n\nPROFESSIONAL SUMMARY\nData Analyst with 3 years of experience in fintech and retail analytics. Skilled in SQL, Python and Power BI; built dashboards used by 60+ stakeholders, designed A/B tests that lifted checkout conversion by 6.4%, and automated reporting that saves 25 hours a week.\n\nSKILLS\nAnalysis: SQL (CTEs, window functions), Python (pandas, NumPy, SciPy), A/B testing, statistics, cohort & funnel analysis\nBI & tools: Power BI (DAX), Tableau, BigQuery, dbt, Airflow, Excel, Git\nBusiness: Metric design, stakeholder communication, data storytelling, payments & e-commerce KPIs\n\nEXPERIENCE\nData Analyst | PayNimbus Technologies, Bengaluru | Aug 2023 – Present\n- Analysed 150M+ payment transactions in BigQuery with SQL to diagnose failure patterns, improving transaction success rate by 2.1 pp\n- Designed and analysed 14 A/B tests on onboarding and checkout; one redesign lifted checkout conversion by 6.4%\n- Built 9 Power BI dashboards (activation, retention, merchant health) used weekly by 60+ product, risk and growth stakeholders\n- Automated 12 recurring reports with Python and Airflow, saving the team 25 hours per week\n- Defined a merchant-churn metric and early-warning model that flagged 70% of churners 30 days ahead\n\nJunior Data Analyst | RetailMetrics Analytics, Chennai | Jul 2022 – Jul 2023\n- Cleaned and modelled sales data for 3 retail clients in Python, reducing data-quality issues by 40%\n- Created Tableau dashboards for category managers, cutting monthly reporting time from 3 days to 4 hours\n- Ran cohort analysis that identified a 22% repeat-purchase gap, informing a loyalty campaign\n\nEDUCATION\nB.Tech, Computer Science, SRM Institute of Science and Technology, Chennai, 2022\n\nCERTIFICATIONS\n- Microsoft Certified: Power BI Data Analyst (PL-300)\n- Google Data Analytics Professional Certificate\n\nACHIEVEMENTS\n- Analytics Impact Award, PayNimbus (Q2 2024)\n- Top 5% on a public SQL challenge platform",
+   "headline": "Data Analyst with 3 years of experience in fintech and retail analytics."
+  },
+  {
+   "id": "resume-sneha-kapoor",
+   "name": "Sneha Kapoor",
+   "target": "Digital Marketing Manager",
+   "for_jd": "jd-digital-marketing",
+   "years": "5 years",
+   "text": "SNEHA KAPOOR\nMumbai, Maharashtra · +91 90000 00003 · sneha.kapoor@example.com · linkedin.com/in/sample-sneha-kapoor\n\nPROFESSIONAL SUMMARY\nPerformance marketer with 5 years of experience scaling D2C brands on Meta and Google. Managed ₹40 lakh/month in ad spend, grew ROAS from 2.1x to 3.6x, cut CAC by 28% and led a team of 3. Strong in GA4, SEO and retention automation.\n\nSKILLS\nMarketing: Performance marketing, full-funnel campaigns, creative testing, SEO, content strategy, retention & CRM\nPlatforms: Meta Ads Manager, Google Ads, GA4, Google Tag Manager, Klaviyo, WebEngage, Amazon Ads, Ahrefs\nMetrics: ROAS, CAC, LTV, conversion rate, cohort retention, budget planning, dashboarding\n\nEXPERIENCE\nPerformance Marketing Lead | GlowKart Beauty, Mumbai | Apr 2022 – Present\n- Managed ₹40 lakh/month across Meta and Google Ads; grew blended ROAS from 2.1x to 3.6x in 18 months\n- Reduced CAC by 28% through structured creative testing (120+ ad variants) and audience restructuring\n- Led a team of 3 executives and 2 agency partners; introduced weekly test-and-learn reviews\n- Set up GA4 and server-side tracking, fixing 30% under-reported conversions and enabling reliable attribution\n- Grew organic traffic by 85% in a year with an SEO content plan targeting 200+ high-intent keywords\n- Launched Klaviyo email and WhatsApp flows that increased repeat-purchase revenue by 34%\n\nDigital Marketing Executive | AdCraft Media, Mumbai | Jun 2020 – Mar 2022\n- Ran Meta and Google campaigns for 8 D2C and education clients with combined monthly spend of ₹15 lakh\n- Improved average client conversion rate by 22% through landing-page A/B tests\n- Built weekly performance dashboards in Google Data Studio for client reporting\n\nEDUCATION\nMBA, Marketing, NMIMS School of Business Management, Mumbai, 2020\nB.Com, University of Mumbai, 2018\n\nCERTIFICATIONS\n- Google Ads Search & Display Certifications\n- Meta Certified Media Buying Professional\n- Google Analytics (GA4) Certification\n\nACHIEVEMENTS\n- GlowKart 'Growth Driver' award (2023)\n- Speaker, Mumbai D2C Marketing Meetup (2024)",
+   "headline": "Performance marketer with 5 years of experience scaling D2C brands on Meta and Google."
+  }
+ ]
+}
