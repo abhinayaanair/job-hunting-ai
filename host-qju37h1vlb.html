@@ -811,6 +811,12 @@ html[data-role=viewer] .nt-btns{display:none}
 .nt-me small{display:none}
 .ntimer{gap:10px!important}
 .netgrid{grid-template-columns:1fr 330px!important}
+
+.lwel h2{font-size:48px}
+.lbig{padding:16px 28px!important;font-size:18px!important}
+.lskip{background:none;border:0;color:#9fd8ff;font:600 14px var(--body);text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-left:6px}
+html[data-role=viewer] .lmodal.open{background:rgba(8,6,20,.86)}
+@media (max-width:700px){.lcard{padding:24px 20px}.lwel h2{font-size:30px}.linput{font-size:28px}}
 </style>
 </head>
 <body>
@@ -1882,7 +1888,7 @@ addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.tar
   if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();next()}
   else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();prev()}
   else if(k==='Home')go(0);else if(k==='End')go(slides.length-1);
-  else if(k==='g'||k==='G')grid();else if(k==='Escape'){grid(false);cdOpen(false);liveModal(false);kitOpen(false);wallModal(false)}
+  else if(k==='g'||k==='G')grid();else if(k==='Escape'){grid(false);cdOpen(false);if(!live.welcome)liveModal(false);kitOpen(false);wallModal(false)}
   else if(k==='o'||k==='O'||k==='m'||k==='M'){if(mode.kind==='map')go(cur);else showMap()}
   else if(k==='f'||k==='F')fs();
   else if(k==='t'||k==='T')tToggle();
@@ -2060,9 +2066,10 @@ function renderModal(){
       c.querySelector('#lvEnd').onclick=()=>{if(!confirm('End the live session for everyone?'))return;liveSend({k:'end'},'c');lsSet('jh_live',null);liveDisconnect();renderModal()};
       loadQR(()=>{const q=document.getElementById('lvQR');if(!q||!window.QRCode)return;q.innerHTML='';new QRCode(q,{text:url,width:220,height:220,colorDark:'#0b0819',colorLight:'#ffffff'})})}
   }else{
-    if(!live.topic){c.innerHTML='<div style="grid-column:1/-1"><span class="eyebrow"><b></b>Live quiz</span><h2>Join the live quiz</h2><p>Enter the code shown on the presenter\'s screen. Your answers are anonymous.</p><input class="linput" id="lvCode" maxlength="6" placeholder="CODE" autocomplete="off"><div class="lerr" id="lvErr"></div><div class="lrow"><button class="lbtn pri" id="lvJoin">Join</button><button class="lbtn" id="lvClose">Close</button></div></div>';
+    if(!live.topic){const W=live.welcome;c.innerHTML='<div class="lwel" style="grid-column:1/-1"><span class="eyebrow"><b></b>'+(W?'be10x · Live workshop':'Live session')+'</span>'+(W?'<h2>Welcome! <span class="grad">Join the live session</span></h2><p>Job Hunting &amp; Job Application using AI, with <b style="color:var(--ink)">Abhinaya Nair</b>. Enter the code shown on the presenter\'s screen to answer quizzes, polls and activities live.</p>':'<h2>Join the live session</h2><p>Enter the code shown on the presenter\'s screen. Your answers are anonymous.</p>')+'<input class="linput" id="lvCode" maxlength="6" placeholder="ENTER CODE" autocomplete="off" autocapitalize="characters" spellcheck="false"><div class="lerr" id="lvErr"></div><div class="lrow"><button class="lbtn pri lbig" id="lvJoin">Join session</button>'+(W?'':'<button class="lbtn" id="lvClose">Close</button>')+'</div>'+(W?'<p class="lnote">Answers are anonymous. No sign-up needed. <button class="lskip" id="lvSkip">Continue without joining</button></p>':'')+'</div>';
       const inp=c.querySelector('#lvCode');setTimeout(()=>inp.focus(),50);
-      const join=()=>{const v=inp.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');if(v.length<4){c.querySelector('#lvErr').textContent='Enter the code from the presenter\'s screen';return}lsSet('jh_join',JSON.stringify({c:v,t:Date.now()}));liveConnect(v);liveModal(false);liveToast('Joined · answers go live to the presenter')};
+      const sk=c.querySelector('#lvSkip');if(sk)sk.onclick=()=>{live.welcome=false;liveModal(false)};
+      const join=()=>{const v=inp.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');if(v.length<4){c.querySelector('#lvErr').textContent='Enter the code from the presenter\'s screen';return}lsSet('jh_join',JSON.stringify({c:v,t:Date.now()}));live.welcome=false;liveConnect(v);liveModal(false);liveToast('Joined · answers go live to the presenter')};
       c.querySelector('#lvJoin').onclick=join;inp.addEventListener('keydown',e=>{if(e.key==='Enter')join()})}
     else{c.innerHTML='<div style="grid-column:1/-1"><span class="eyebrow"><b></b>Live quiz</span><h2>You\'re in · '+live.code+'</h2><p>Answer quizzes as they come up. The presenter guides the slides; when they unlock browsing you can move around freely.</p><div class="lrow"><button class="lbtn pri" id="lvClose">Back to slides</button><button class="lbtn danger" id="lvLeave">Leave session</button></div></div>';
       c.querySelector('#lvLeave').onclick=()=>{lsSet('jh_join',null);liveDisconnect();renderModal()}}
@@ -2101,12 +2108,12 @@ setInterval(()=>{if(!live||!live.topic)return;
 },120000);
 setInterval(()=>{if(ROLE==='viewer'&&live&&live.topic&&live.locked&&Date.now()-(live.lastCtl||Date.now())>6*60e3){live.locked=false;liveUI();liveToast('The presenter seems offline. You can browse freely')}},30000);
 function liveAuto(){
-  document.getElementById('liveModal').addEventListener('click',e=>{if(e.target.id==='liveModal')liveModal(false)});
+  document.getElementById('liveModal').addEventListener('click',e=>{if(e.target.id==='liveModal'&&!live.welcome)liveModal(false)});
   document.getElementById('liveBtn').onclick=e=>{e.stopPropagation();liveModal()};
   document.getElementById('bGuide').onclick=()=>window.open(SITE_URL+'guide.html','_blank');
   const fresh=v=>{try{const o=JSON.parse(v||'null');return o&&Date.now()-o.t<10*3600e3?o.c:null}catch(e){return null}};
   if(ROLE==='trainer'){const c=fresh(lsGet('jh_live'));if(c)liveConnect(c)}
-  else{const q=new URLSearchParams(location.search).get('live');const c=q?q.toUpperCase():fresh(lsGet('jh_join'));if(c){lsSet('jh_join',JSON.stringify({c,t:Date.now()}));liveConnect(c);if(q)setTimeout(()=>liveToast('Joined live session '+c),1200)}}
+  else{const q=new URLSearchParams(location.search).get('live');const c=q?q.toUpperCase():fresh(lsGet('jh_join'));if(c){lsSet('jh_join',JSON.stringify({c,t:Date.now()}));liveConnect(c);if(q)setTimeout(()=>liveToast('Joined live session '+c),1200)}else{live.welcome=true;setTimeout(()=>liveModal(true),350)}}
   liveUI();
 }
 
