@@ -17,7 +17,6 @@ Open `index.html` in Chrome, or visit the GitHub Pages link for this repository.
 | O or M | Zoom out to the full map (press again to return) |
 | Click a slide or island | Fly straight to it |
 | G | List of all slides |
-| P | Presenter notes in a separate window |
 | F | Fullscreen |
 | T | Activity timer (on the LinkedIn activity slide) |
 | C | Start / pause the countdown (clock button, bottom right) |
