@@ -1,6 +1,23 @@
 {
  "jds": [
   {
+   "id": "jd-ai-developer",
+   "title": "AI Developer / Consultant (GenAI)",
+   "company": "Nuvora AI Labs",
+   "location": "Bengaluru · Hybrid",
+   "experience": "3–6 years",
+   "ctc": "₹22–35 LPA",
+   "skills": [
+    "Python",
+    "LLM apps (RAG, agents)",
+    "LangChain / LlamaIndex",
+    "Vector databases",
+    "FastAPI & cloud (AWS/GCP)",
+    "Client consulting"
+   ],
+   "text": "AI Developer / Consultant (GenAI) — Nuvora AI Labs\nLocation: Bengaluru · Hybrid | Experience: 3–6 years | CTC: ₹22–35 LPA\n\nAbout the company\nNuvora AI Labs builds generative-AI solutions for banks, retailers and SaaS companies, from proof of concept to production. We need an AI developer who can also sit with clients, scope problems and explain trade-offs in plain language.\n\nResponsibilities\n- Design, build and deploy LLM-powered applications: RAG chatbots, document-processing pipelines and AI agents\n- Work directly with client stakeholders to scope use cases, define success metrics and present solutions\n- Choose and integrate models through APIs (OpenAI, Anthropic Claude, Google Gemini) and open-source LLMs\n- Build retrieval pipelines with vector databases (Pinecone, pgvector, FAISS) and measure answer quality\n- Ship production services with FastAPI, Docker and AWS or GCP, with monitoring and cost controls\n- Set up evaluation, guardrails and prompt-engineering practices to improve accuracy and safety\n- Mentor junior developers and contribute to reusable solution accelerators\n\nMust-have\n- 3–6 years of software or ML engineering experience, including 1+ year building LLM applications\n- Strong Python; experience with LangChain, LlamaIndex or similar frameworks\n- Hands-on experience with RAG, embeddings and vector databases\n- Experience deploying APIs and services on AWS, GCP or Azure (Docker, CI/CD)\n- Ability to explain AI concepts and trade-offs to non-technical clients\n- B.E./B.Tech in Computer Science or a related field\n\nGood to have\n- Experience evaluating or fine-tuning LLMs (RAGAS, LLM-as-judge)\n- Agent frameworks (LangGraph, CrewAI) or tool-calling workflows\n- Prior consulting or client-facing delivery experience\n- AWS Machine Learning or Google Cloud ML certification\n\nKey skills: Python, LLM apps (RAG, agents), LangChain / LlamaIndex, Vector databases, FastAPI & cloud (AWS/GCP), Client consulting"
+  },
+  {
    "id": "jd-talent-acquisition",
    "title": "Talent Acquisition Specialist",
    "company": "Brightline Technologies",
@@ -53,6 +70,15 @@
   }
  ],
  "resumes": [
+  {
+   "id": "resume-karthik-menon",
+   "name": "Karthik Menon",
+   "target": "AI Developer / Consultant",
+   "for_jd": "jd-ai-developer",
+   "years": "4 years",
+   "text": "KARTHIK MENON\nBengaluru, Karnataka · +91 90000 00004 · karthik.menon@example.com · linkedin.com/in/sample-karthik-menon\n\nPROFESSIONAL SUMMARY\nAI Developer with 4 years of experience building and shipping machine-learning and generative-AI applications for banking and retail clients. Delivered 6 production LLM solutions (RAG chatbots, document AI and agents), raised answer accuracy from 71% to 92% and cut a client's support costs by ₹1.2 crore a year, while leading client workshops from scoping to rollout.\n\nSKILLS\nGenAI & ML: LLM applications, RAG, AI agents and tool calling, prompt engineering, embeddings, LLM evaluation (RAGAS), fine-tuning, scikit-learn\nEngineering: Python, FastAPI, LangChain, LlamaIndex, LangGraph, Pinecone, pgvector, Docker, AWS (Bedrock, Lambda, ECS), GitHub Actions\nConsulting: Use-case scoping, client workshops, solution design, stakeholder demos, cost and ROI estimates\n\nEXPERIENCE\nAI Engineer | Cognitrix Solutions, Bengaluru | Jul 2023 – Present\n- Led development of a RAG-based support chatbot for 3 banking clients, raising answer accuracy from 71% to 92% with hybrid search and re-ranking\n- Built a document-AI pipeline that processes 40,000+ loan documents a month, cutting manual processing time by 65%\n- Designed a tool-calling AI agent that drafts and routes customer emails, saving a retail client ₹1.2 crore a year in support costs\n- Set up an LLM evaluation framework (RAGAS, LLM-as-judge) that catches regressions before release; hallucination reports fell by 48%\n- Ran 15+ client discovery workshops to scope use cases and present ROI, converting 5 proofs of concept into paid production projects\n- Deployed services on AWS (Bedrock, ECS, Lambda) with FastAPI and Docker, cutting inference cost per query by 38%\n\nMachine Learning Engineer | DataLoom Analytics, Bengaluru | Jun 2021 – Jun 2023\n- Built demand-forecasting models for 2 retail clients, improving forecast accuracy (MAPE) by 18%\n- Productionised 7 ML models with FastAPI and CI/CD, reducing release time from 2 weeks to 2 days\n- Created internal Python libraries for feature engineering adopted by a team of 12\n\nEDUCATION\nB.Tech, Computer Science and Engineering, PES University, Bengaluru, 2021\n\nCERTIFICATIONS\n- AWS Certified Machine Learning – Specialty\n- DeepLearning.AI: Generative AI with Large Language Models\n\nACHIEVEMENTS\n- Client Impact Award, Cognitrix Solutions (2024)\n- Speaker, Bengaluru GenAI Meetup: 'Evaluating RAG in production' (2025)",
+   "headline": "AI Developer with 4 years of experience building and shipping machine-learning and generative-AI applications for banking and retail clients."
+  },
   {
    "id": "resume-ananya-mehra",
    "name": "Ananya Mehra",
