@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-role="viewer">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -132,7 +132,7 @@ body:hover #nav{opacity:1}
 .bigquote .q{color:var(--violet);font-size:140px;line-height:0;vertical-align:-50px;margin-right:8px}
 
 /* roadmap */
-.road{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:46px 26px;margin-top:64px}
+.road{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:46px 26px;margin-top:64px}
 .stop{position:relative;padding:30px 26px 28px;border-radius:24px;background:var(--glass);border:1px solid var(--line);min-height:200px}
 .stop .num{position:absolute;top:-22px;left:22px;box-shadow:0 10px 30px #0006}
 .stop h3{font-size:26px;margin-top:20px}
@@ -559,6 +559,135 @@ body.zoomed:not(.flying) .jflow{animation-play-state:running}
 @keyframes jflow{to{stroke-dashoffset:-240}}
 body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
 #help{white-space:nowrap}
+
+/* ===== new content ===== */
+.today3{display:grid;grid-template-columns:1fr 56px 1fr 56px 1fr;margin-top:40px;align-items:stretch}
+.part{border-radius:28px;padding:30px 28px;background:var(--glass);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.part.hl{background:linear-gradient(150deg,rgba(255,157,46,.24),rgba(255,95,162,.18));border-color:rgba(255,200,61,.45)}
+.part .when{font:700 15px var(--mono);letter-spacing:.14em;color:var(--c)}
+.part h3{font-size:34px}
+.part p{font-size:20px;color:var(--mute);line-height:1.5}
+.part .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.part .chip{font-size:15px;padding:8px 12px}
+.part .chip .lucide{color:var(--c)}
+.parrow{display:grid;place-items:center;color:var(--dim);font-size:32px}
+.story{display:grid;grid-template-columns:1fr 80px 1fr;margin-top:28px;align-items:stretch}
+.team{border-radius:26px;padding:22px 26px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.22)}
+.team h4,.allr h4{font:700 14px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.spec{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:19px;font-weight:600}
+.spec .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 16%,transparent);font-size:22px;color:var(--c)}
+.spec small{font:500 15px var(--body);color:var(--mute)}
+.spec .tool{font:700 14px var(--mono);color:var(--c);padding:6px 10px;border-radius:9px;background:color-mix(in srgb,var(--c) 14%,transparent)}
+.team .cost{margin-top:14px;font:700 20px var(--display);color:var(--coral)}
+.vsb{display:grid;place-items:center;font:800 40px var(--display);color:var(--dim)}
+.allr{border-radius:26px;padding:22px 26px;background:linear-gradient(150deg,rgba(255,157,46,.24),rgba(255,95,162,.18));border:1px solid rgba(255,200,61,.5);box-shadow:0 30px 80px -20px rgba(255,157,46,.4)}
+.allr .big{display:flex;align-items:center;gap:16px;font:800 42px var(--display);margin:4px 0 8px}
+.allr .big .ic{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#d97757,#ffb27a);color:#fff;font-size:32px}
+.allr ul{padding:0}
+.allr li{list-style:none;display:flex;gap:12px;font-size:18.5px;line-height:1.45;padding:6px 0}
+.allr li .lucide{color:var(--amber);flex:none;margin-top:4px;font-size:20px}
+.allr .cost{margin-top:8px;font:700 20px var(--display);color:var(--mint)}
+.storynote{margin-top:18px;padding:14px 22px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:19px;color:var(--mute)}
+.hrow{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+.hrow h2{margin-top:16px}
+.dlbtn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:14px;background:linear-gradient(135deg,var(--mint),var(--sky));color:#06231a;font:700 17px var(--body);text-decoration:none;white-space:nowrap;flex:none}
+.dlbtn.alt{background:rgba(255,255,255,.1);color:var(--ink);border:1px solid var(--line)}
+.pgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:28px}
+.pcard2{border-radius:20px;padding:18px 18px 16px;background:var(--glass);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-height:200px}
+.pcard2 .nm{font:700 20px/1.2 var(--display)}
+.pcard2 .bf{font-size:16px;color:var(--mute);line-height:1.4}
+.pcard2 .pub{margin-top:auto;font:500 12.5px var(--mono);color:var(--dim)}
+.pcard2 .st{align-self:flex-start;font:700 11px var(--mono);letter-spacing:.1em;padding:4px 8px;border-radius:7px;background:rgba(255,255,255,.08);color:var(--dim)}
+.pcard2 .st.on{background:rgba(46,230,168,.18);color:var(--mint)}
+.kcol h4{display:flex;align-items:center;gap:8px}
+.ki{padding:14px 14px;border-radius:12px;background:rgba(255,255,255,.05);margin-top:10px}
+.ki b{display:block;font:700 20px var(--display)}
+.ki span{font-size:16px;color:var(--mute)}
+.cside{border-radius:16px;background:rgba(0,0,0,.3);border:1px solid rgba(255,200,61,.35);padding:14px}
+.chd{display:flex;align-items:center;gap:8px;font:700 16px var(--display);color:var(--amber);margin-bottom:10px}
+.cside .task{font-size:15px;margin-top:10px}
+.cside .task i{width:24px;height:24px;font-size:12px}
+.cmp{width:100%;border-collapse:separate;border-spacing:0 7px;margin-top:18px;font-size:18.5px}
+.cmp th{font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:left;padding:0 18px 4px}
+.cmp th:last-child{color:var(--amber)}
+.cmp td{padding:12px 18px;background:var(--glass);border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--mute)}
+.cmp td:first-child{border-left:1px solid var(--line);border-radius:14px 0 0 14px;font-weight:700;color:var(--ink);width:250px}
+.cmp td:last-child{border-right:1px solid var(--line);border-radius:0 14px 14px 0;background:rgba(255,157,46,.08)}
+.cy,.cm,.cn{font-weight:800;margin-right:8px}.cy{color:var(--mint)}.cm{color:var(--amber)}.cn{color:var(--coral)}
+.verdict2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.vd{display:flex;gap:14px;align-items:center;padding:16px 20px;border-radius:16px;background:color-mix(in srgb,var(--c) 16%,transparent);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);font-size:19px}
+.vd .lucide{font-size:26px;color:var(--c);flex:none}
+.verbs{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px}
+.vcol{border-radius:20px;padding:20px;background:var(--glass);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.vcol h4{font:700 19px var(--display);color:var(--c)}
+.vcol p{font-size:16.5px;line-height:1.75}
+.cbtn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid var(--line);font:700 14px var(--body);color:var(--ink);flex:none;align-self:flex-start;cursor:pointer}
+.cbtn:hover{background:rgba(255,255,255,.16)}
+.cbtn.done{background:rgba(46,230,168,.2);border-color:var(--mint);color:var(--mint)}
+.vcol .cbtn{margin-top:auto}
+.crow{display:flex;align-items:center;gap:12px;margin-top:10px;padding:9px 10px 9px 14px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--line);font:14.5px/1.4 var(--mono);color:var(--ink)}
+.crow span{flex:1}
+.plib .tabs{margin-top:28px}
+/* ===== live quiz ===== */
+.lv{position:relative;isolation:isolate;overflow:hidden}
+.lbar{position:absolute;left:0;top:0;bottom:0;width:0;z-index:-1;background:linear-gradient(90deg,rgba(139,108,255,.42),rgba(61,184,255,.22));pointer-events:none;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.lcnt{position:absolute;right:12px;bottom:8px;z-index:2;font:700 14px var(--mono);color:var(--ink);background:rgba(10,7,24,.75);padding:3px 8px;border-radius:8px;pointer-events:none}
+.lcnt:empty{display:none}
+body.hide-results .lbar,body.hide-results .lcnt{display:none}
+.picked{outline:3px solid var(--sky);outline-offset:3px}
+.flip{position:relative}
+.tfrow{position:absolute;left:0;right:0;bottom:-60px;display:flex;gap:8px}
+.tfb{flex:1;padding:11px 0;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid var(--line);font:700 15px var(--body);color:var(--ink)}
+.tfb.tright{border-color:var(--mint);color:var(--mint)}.tfb.twrong{border-color:var(--coral);color:var(--coral)}
+.ql[data-opts]{flex-wrap:wrap;row-gap:12px}
+.qopts{flex-basis:100%;display:flex;gap:8px;flex-wrap:wrap;padding-left:36px}
+.qopt{padding:8px 16px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid var(--line);font:600 16px var(--body);color:var(--ink)}
+.qopt:hover{background:rgba(255,255,255,.14)}
+.qopt.right{border-color:var(--mint);background:rgba(46,230,168,.16);color:var(--mint)}
+.qopt.wrongp{border-color:var(--coral);color:var(--coral)}
+.opt.wrongp{border-color:var(--coral)}
+html[data-role=trainer] .tfb,html[data-role=trainer] .hunter,html[data-role=trainer] .abc{cursor:default}
+#liveChip:empty{display:none}
+.lchip{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:99px;background:rgba(255,59,92,.14);border:1px solid rgba(255,95,162,.5);color:#ffd0e4;font:700 13px var(--body);letter-spacing:.04em;cursor:pointer;pointer-events:auto}
+.lchip i{width:8px;height:8px;border-radius:50%;background:#ff3b5c;animation:blink 1.2s infinite}
+#chrome{pointer-events:none}#chrome .lchip{pointer-events:auto}
+#liveBtn.on{opacity:1!important;background:rgba(255,59,92,.18)!important;border-color:rgba(255,95,162,.6)!important;color:#ffd0e4}
+.lmodal{position:fixed;inset:0;z-index:45;display:none;place-items:center;background:rgba(8,6,20,.72);backdrop-filter:blur(6px)}
+.lmodal.open{display:grid}
+.lcard{width:min(900px,92vw);border-radius:28px;padding:34px 38px;background:#140f30;border:1px solid rgba(255,255,255,.16);box-shadow:0 40px 120px rgba(0,0,0,.6);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;font-family:var(--body)}
+.lcard h2{font-size:44px;margin:14px 0 10px}
+.lcard p{color:var(--mute);font-size:18px;line-height:1.5}
+.lurl{font:700 26px var(--mono);color:var(--sky);margin-top:10px;word-break:break-all}
+.lcode-l{margin-top:18px;font:600 13px var(--mono);letter-spacing:.2em;color:var(--dim)}
+.lcode{font:800 88px/1 var(--display);letter-spacing:.12em;background:linear-gradient(100deg,var(--amber),var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lmeta{margin-top:10px;font:700 18px var(--body);color:var(--mint)}
+.lrow{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.lbtn{padding:12px 18px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid var(--line);font:700 16px var(--body);color:var(--ink);cursor:pointer}
+.lbtn:hover{background:rgba(255,255,255,.16)}
+.lbtn.pri{background:linear-gradient(135deg,var(--violet),var(--pink));border-color:transparent}
+.lbtn.danger{color:var(--coral)}
+.lqr{width:240px;height:240px;border-radius:18px;background:#fff;padding:10px;display:grid;place-items:center;color:#333;font-size:14px;text-align:center}
+.lqr img,.lqr canvas{width:220px!important;height:220px!important}
+.linput{margin-top:18px;width:100%;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);font:800 34px var(--display);letter-spacing:.2em;color:var(--ink);text-transform:uppercase;outline:none}
+.linput:focus{border-color:var(--violet)}
+.lnote{margin-top:12px;font-size:14px;color:var(--dim)}
+.lerr{color:var(--coral);font-size:15px;margin-top:8px;min-height:18px}
+.rfloat{position:fixed;z-index:42;font-size:56px;pointer-events:none;animation:floatup 2.6s ease-out forwards}
+html[data-role=viewer] #cdBtn{display:none!important}
+
+/* phone answer panel (viewer) */
+#vpanel{position:fixed;left:0;right:0;bottom:0;z-index:44;max-height:58vh;overflow:auto;padding:14px 14px 18px;background:#100c26;border-top:1px solid rgba(255,255,255,.18);box-shadow:0 -20px 50px rgba(0,0,0,.5);font-family:var(--body);display:none}
+#vpanel.on{display:block}
+.vp-h{display:flex;justify-content:space-between;align-items:center;font:700 12px var(--mono);letter-spacing:.14em;color:var(--dim);margin-bottom:8px}
+.vp-q{font:700 16px/1.35 var(--body);color:var(--ink);margin:12px 0 8px}
+.vp-o{display:flex;flex-wrap:wrap;gap:8px}
+.vp-o button{flex:1 1 calc(50% - 8px);min-height:46px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);font:600 15px var(--body);color:var(--ink);text-align:left}
+.vp-o button.picked{border-color:var(--sky);background:rgba(61,184,255,.18)}
+.vp-o button.right{border-color:var(--mint);background:rgba(46,230,168,.2);color:#c6ffe9}
+.vp-o button.wrongp{border-color:var(--coral);background:rgba(255,107,74,.16)}
+.vp-min{background:none;border:0;color:var(--mute);font:700 13px var(--body)}
+@media (hover:none){#nav>button{opacity:1!important}}
+@media (max-width:900px){#help{display:none!important}}
 </style>
 </head>
 <body>
@@ -596,6 +725,22 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
   </div>
 </section>
 
+<!-- HOW TODAY WORKS -->
+<section class="slide m-violet" data-title="How today works" data-sec="Welcome">
+  <span class="eyebrow r"><b></b>How today works</span>
+  <h2 class="r">Specialists first. <span class="grad">Then the all-rounder.</span></h2>
+  <div class="today3">
+    <div class="part r" style="--c:var(--mint)"><span class="when">PART 1 · ~90 MIN</span><h3>The specialists</h3><p>The best tool for each job. Every one of them is excellent in its own lane.</p>
+      <div class="chips"><span class="chip"><svg class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg> Resume: Interviews.chat</span><span class="chip"><svg class="lucide lucide-mic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 19v3" /> <path d="M19 10v2a7 7 0 0 1-14 0v-2" /> <rect x="9" y="2" width="6" height="13" rx="3" /> </svg> Interview: Yoodli</span><span class="chip"><svg class="lucide lucide-user-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="10" cy="7" r="4" /> <path d="M10.3 15H7a4 4 0 0 0-4 4v2" /> <circle cx="17" cy="17" r="3" /> <path d="m21 21-1.9-1.9" /> </svg> Contacts: Clay</span><span class="chip"><svg class="lucide lucide-zap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /> </svg> Apply: Simplify</span><span class="chip"><svg class="lucide lucide-bot" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 8V4H8" /> <rect width="16" height="12" x="4" y="8" rx="2" /> <path d="M2 14h2" /> <path d="M20 14h2" /> <path d="M15 13v2" /> <path d="M9 13v2" /> </svg> Browse: Comet</span></div></div>
+    <div class="parrow r"><svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></div>
+    <div class="part hl r" style="--c:var(--amber)"><span class="when">PART 2</span><h3>The all-rounder: Claude</h3><p>One subscription that covers every lane: job-hunting skills, live job-board connectors and an agent in your Chrome browser.</p>
+      <div class="chips"><span class="chip"><svg class="lucide lucide-puzzle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" /> </svg> Skills &amp; plugins</span><span class="chip"><svg class="lucide lucide-plug" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 22v-5" /> <path d="M15 8V2" /> <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" /> <path d="M9 8V2" /> </svg> Connectors</span><span class="chip"><svg class="lucide lucide-globe" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /> </svg> Claude in Chrome</span></div></div>
+    <div class="parrow r"><svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></div>
+    <div class="part r" style="--c:var(--sky)"><span class="when">PART 3</span><h3>Your questions</h3><p>Your real job-search problems, solved live, plus a 7-day action plan.</p>
+      <div class="chips"><span class="chip"><svg class="lucide lucide-circle-help" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="10" /> <path d="M9 9.5a3 2.5 0 016 0c0 2-2 2-3 3.5" /> <path d="M12 17h.01" /> </svg> Q&amp;A</span><span class="chip"><svg class="lucide lucide-list-checks" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M13 5h8" /> <path d="M13 12h8" /> <path d="M13 19h8" /> <path d="m3 17 2 2 4-4" /> <path d="m3 7 2 2 4-4" /> </svg> Action plan</span></div></div>
+  </div>
+</section>
+
 <!-- 5 ROADMAP -->
 <section class="slide m-violet" data-title="Roadmap for today" data-sec="Welcome">
   <span class="eyebrow r"><b></b>The plan</span>
@@ -608,7 +753,7 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
     <div class="stop r"><span class="num" style="background:var(--coral)">05</span><h3>Contact discovery</h3><p>Find recruiters with RocketReach &amp; Clay</p></div>
     <div class="stop r"><span class="num" style="background:var(--amber);color:#3a2800">06</span><h3>Agentic AI magic</h3><p>Let the browser job-hunt for you</p></div>
     <div class="stop r"><span class="num" style="background:var(--mint);color:#06301f">07</span><h3>Recruiter lens</h3><p>Screen your own CV like a recruiter</p></div>
-    <div class="stop r"><span class="num" style="background:var(--sky);color:#04223a">08</span><h3>Quiz &amp; action plan</h3><p>Lock it in before you leave</p></div>
+    <div class="stop r"><span class="num" style="background:linear-gradient(135deg,#d97757,#ffb27a);color:#2a1200">08</span><h3>Claude: the all-rounder</h3><p>Skills, connectors and the Chrome agent</p></div><div class="stop r"><span class="num" style="background:var(--sky);color:#04223a">09</span><h3>Quiz &amp; action plan</h3><p>Lock it in before you leave</p></div>
   </div>
 </section>
 
@@ -644,7 +789,7 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
 
 <!-- 8-12 QUIZ -->
 <section class="slide m-violet" data-title="Quiz: ATS-friendly format" data-sec="ATS basics">
-  <div class="qhead r"><span class="qnum">ATS QUIZ · 1/5</span><span class="hint" style="margin:0">Type A, B, C or D in chat</span></div>
+  <div class="qhead r"><span class="qnum">ATS QUIZ · 1/5</span><span class="hint" style="margin:0">Answer on your phone or in chat</span></div>
   <p class="qtext r">Which resume format is generally the most ATS-friendly?</p>
   <div class="quiz">
     <button class="opt r"><span class="l">A</span>Infographic resume</button>
@@ -723,6 +868,18 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
     <div class="letter r" style="--c:var(--coral)"><div class="L">E</div><h4>Education &amp; Certs</h4><p>Degrees and certifications that support your role. Current and concise.</p></div>
     <div class="letter r" style="--c:var(--amber)"><div class="L">R</div><h4>Recognitions &amp; Results</h4><p>Awards, client praise or success metrics that validate your impact.</p></div>
   </div>
+</section>
+
+<section class="slide m-mint" data-title="Prompt pack: resume & ATS" data-sec="ATS basics">
+  <span class="eyebrow r"><b></b>Copy into ChatGPT or Claude</span>
+  <h2 class="r">Prompt pack: <span class="grad2">resume &amp; ATS</span></h2>
+  <div class="plib r" data-lib="resume"></div>
+</section>
+
+<section class="slide m-sky" data-title="Power verbs" data-sec="ATS basics">
+  <span class="eyebrow r"><b></b>Start every bullet with one</span>
+  <h2 class="r">Power verbs for your resume</h2>
+  <div class="verbs"><div class="vcol r" style="--c:var(--mint)"><h4>Leadership &amp; ownership</h4><p>Led · Directed · Spearheaded · Orchestrated · Managed · Governed · Headed · Supervised · Coordinated · Oversaw · Championed · Mentored · Facilitated · Guided · Delegated · Executed · Drove · Influenced · Established · Initiated</p><button class="cbtn" data-copy="Led, Directed, Spearheaded, Orchestrated, Managed, Governed, Headed, Supervised, Coordinated, Oversaw, Championed, Mentored, Facilitated, Guided, Delegated, Executed, Drove, Influenced, Established, Initiated"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg> Copy</button></div><div class="vcol r" style="--c:var(--sky)"><h4>Strategy &amp; planning</h4><p>Developed · Designed · Formulated · Crafted · Planned · Strategized · Defined · Architected · Structured · Conceptualized · Prioritized · Roadmapped · Forecasted · Assessed · Evaluated · Envisioned · Scoped · Aligned · Positioned · Recommended</p><button class="cbtn" data-copy="Developed, Designed, Formulated, Crafted, Planned, Strategized, Defined, Architected, Structured, Conceptualized, Prioritized, Roadmapped, Forecasted, Assessed, Evaluated, Envisioned, Scoped, Aligned, Positioned, Recommended"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg> Copy</button></div><div class="vcol r" style="--c:var(--violet)"><h4>Analysis &amp; research</h4><p>Analyzed · Investigated · Evaluated · Assessed · Examined · Researched · Identified · Diagnosed · Interpreted · Measured · Quantified · Validated · Audited · Benchmarked · Mapped · Modeled · Synthesized · Surveyed · Explored · Reviewed</p><button class="cbtn" data-copy="Analyzed, Investigated, Evaluated, Assessed, Examined, Researched, Identified, Diagnosed, Interpreted, Measured, Quantified, Validated, Audited, Benchmarked, Mapped, Modeled, Synthesized, Surveyed, Explored, Reviewed"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg> Copy</button></div><div class="vcol r" style="--c:var(--pink)"><h4>Problem solving</h4><p>Resolved · Optimized · Improved · Streamlined · Enhanced · Eliminated · Corrected · Reduced · Simplified · Remediated · Troubleshot · Reengineered · Refined · Revamped · Reorganized · Accelerated · Automated · Mitigated · Strengthened · Transformed</p><button class="cbtn" data-copy="Resolved, Optimized, Improved, Streamlined, Enhanced, Eliminated, Corrected, Reduced, Simplified, Remediated, Troubleshot, Reengineered, Refined, Revamped, Reorganized, Accelerated, Automated, Mitigated, Strengthened, Transformed"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg> Copy</button></div><div class="vcol r" style="--c:var(--amber)"><h4>Business analysis</h4><p>Gathered · Documented · Elicited · Translated · Defined · Prioritized · Validated · Mapped · Modeled · Recommended · Facilitated · Collaborated</p><button class="cbtn" data-copy="Gathered, Documented, Elicited, Translated, Defined, Prioritized, Validated, Mapped, Modeled, Recommended, Facilitated, Collaborated"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg> Copy</button></div></div>
 </section>
 
 <!-- 15 DIVIDER -->
@@ -866,6 +1023,12 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
   <div class="tipbar" data-step="5"><span class="chip"><svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /> </svg> 60–90 seconds</span><span class="chip"><svg class="lucide lucide-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg> "I", not "we"</span><span class="chip"><svg class="lucide lucide-trophy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" /> <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" /> <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" /> <path d="M4 22h16" /> <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" /> <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" /> </svg> End with a number</span><span class="chip"><svg class="lucide lucide-quote" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> </svg> Real story, not a textbook answer</span></div>
 </section>
 
+<section class="slide m-amber" data-title="Prompt pack: STAR answers" data-sec="Interview lab">
+  <span class="eyebrow r"><b></b>Copy into ChatGPT, Claude or Gemini</span>
+  <h2 class="r">Prompt pack: <span class="grad">STAR answers</span></h2>
+  <div class="plib r" data-lib="star"></div>
+</section>
+
 <!-- 25 DEMO 3 YOODLI -->
 <section class="slide m-mint" data-title="Live demo 3: Yoodli" data-sec="Interview lab">
   <div class="demo" style="--c:var(--mint)">
@@ -949,7 +1112,7 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
       <span class="eyebrow r"><b></b>Live demo 5</span>
       <h2 class="r">RocketReach</h2>
       <div class="feat"><div class="r">Finds <b>verified</b> recruiter, hiring-manager and employee contacts</div><div class="r">Targets specific roles, companies and industries</div><div class="r">Contact discovery + company research in one place</div><div class="r">Faster networking, referrals and cold outreach</div></div>
-      <div class="script r"><h5>DEMO SCRIPT</h5><ol><li>Sign in with Google</li><li>Type a plain-English search (right)</li><li>Open a result's LinkedIn to prove it's real</li></ol></div>
+      <div class="script r"><h5>TRY THESE SEARCHES</h5><div class="crow"><span>I am looking for HR roles in Gurgaon in tech industry</span><button class="cbtn" data-copy="I am looking for HR roles in Gurgaon in tech industry"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg></button></div><div class="crow"><span>I am looking for finance roles in Bangalore in finance industry</span><button class="cbtn" data-copy="I am looking for finance roles in Bangalore in finance industry"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg></button></div><div class="crow"><span>GetProspect filter: Job title HR · Location India · Company Google</span><button class="cbtn" data-copy="Job Title: HR | Location: India | Company Name: Google"><svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /> </svg></button></div></div>
     </div>
     <div class="browser r right"><div class="bbar"><span class="dots"><i></i><i></i><i></i></span><span class="url">rocketreach.co/person</span></div>
       <div class="view"><div class="ta" style="min-height:0;border-style:solid;font-size:18px;color:var(--ink)"><svg style="color:var(--sky)" class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg> <span class="type" data-text="I am looking for HR roles in Gurgaon in tech industry"></span><span class="caret"></span></div>
@@ -984,6 +1147,16 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
   </div>
 </section>
 
+<section class="slide m-coral" data-title="Tool wants a work email?" data-sec="Contact discovery">
+  <span class="eyebrow r"><b></b>Common blocker</span>
+  <h2 class="r">"Please sign up with a <span class="grad">work email</span>"</h2>
+  <div class="g3 mt2">
+    <div class="card r pop"><div class="ico" style="--c:var(--mint)"><svg class="lucide lucide-at-sign" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4" /> <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" /> </svg></div><h3 style="margin-top:16px">Make a free domain email</h3><p>Use <b style="color:var(--ink)">Cloudflare Email Routing</b> or <b style="color:var(--ink)">Zoho Mail Free</b> to create an address like <span class="mono" style="color:var(--mint)">hello@yourname.in</span>. Most B2B tools accept it as a work email.</p></div>
+    <div class="card r pop"><div class="ico" style="--c:var(--sky)"><svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg></div><h3 style="margin-top:16px">Use finders that accept Gmail</h3><p>Apollo.io (generous free plan), Prospeo, Hunter.io, Snov.io and Lusha (limited free credits).</p></div>
+    <div class="card r pop"><div class="ico" style="--c:var(--coral)"><svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg></div><h3 style="margin-top:16px">Don't borrow your employer's</h3><p>Never use a corporate email for personal job hunting or lead generation unless your employer explicitly allows it.</p></div>
+  </div>
+</section>
+
 <!-- 32 WORKFLOW -->
 <section class="slide m-mint" data-title="Workflow automation: Simplify & Teal" data-sec="Automation">
   <span class="eyebrow r"><b></b>Funnel stage · Workflow automation</span>
@@ -1013,8 +1186,7 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
 <section class="slide m-violet" data-title="Comet prompt library" data-sec="Automation">
   <span class="eyebrow r"><b></b>Copy these into Comet</span>
   <h2 class="r">The Agentic Prompt Library</h2>
-  <div class="tabs r" id="ptabs"></div>
-  <div class="pbox r"><button class="copy" id="pcopy">Copy</button><div class="ptitle" id="ptitle"></div><div class="ptext" id="ptext"></div><div class="ptip" id="ptip"></div></div>
+  <div class="plib r" data-lib="comet"></div>
 </section>
 
 <!-- 35 RECRUITER LENS -->
@@ -1053,14 +1225,110 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
 </section>
 
 <!-- 37 QUIZ TIME 1 -->
+<!-- ===== CLAUDE SECTION ===== -->
+<section class="slide divider m-amber" data-title="Part 2: the all-rounder" data-sec="Claude all-rounder">
+  <p class="kicker r">// PART 2</p>
+  <p class="big r">One assistant.<br><span class="grad">Every lane.</span></p>
+  <div class="row mt r"><span class="chip"><svg class="lucide lucide-puzzle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" /> </svg> Skills &amp; plugins</span><span class="chip"><svg class="lucide lucide-plug" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 22v-5" /> <path d="M15 8V2" /> <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" /> <path d="M9 8V2" /> </svg> Connectors</span><span class="chip"><svg class="lucide lucide-globe" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /> </svg> Claude in Chrome</span><span class="chip"><svg class="lucide lucide-git-compare-arrows" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="5" cy="6" r="3" /> <path d="M12 6h5a2 2 0 0 1 2 2v7" /> <path d="m15 9-3-3 3-3" /> <circle cx="19" cy="18" r="3" /> <path d="M12 18H7a2 2 0 0 1-2-2V9" /> <path d="m9 15 3 3-3 3" /> </svg> Comet vs Claude</span></div>
+</section>
+
+<section class="slide m-amber" data-title="Specialists vs the all-rounder" data-sec="Claude all-rounder">
+  <span class="eyebrow r"><b></b>A story from any company</span>
+  <h2 class="r">Hire 5 specialists, or <span class="grad">one all-rounder?</span></h2>
+  <div class="story">
+    <div class="team r left"><h4>The specialist team</h4>
+      <div class="spec" style="--c:var(--pink)"><span class="ic"><svg class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg></span><div>Resume writer<br><small>Tailors your CV for every role</small></div><span class="tool">Interviews.chat</span></div>
+      <div class="spec" style="--c:var(--mint)"><span class="ic"><svg class="lucide lucide-mic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 19v3" /> <path d="M19 10v2a7 7 0 0 1-14 0v-2" /> <rect x="9" y="2" width="6" height="13" rx="3" /> </svg></span><div>Interview coach<br><small>Mock interviews &amp; feedback</small></div><span class="tool">Yoodli</span></div>
+      <div class="spec" style="--c:var(--sky)"><span class="ic"><svg class="lucide lucide-user-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="10" cy="7" r="4" /> <path d="M10.3 15H7a4 4 0 0 0-4 4v2" /> <circle cx="17" cy="17" r="3" /> <path d="m21 21-1.9-1.9" /> </svg></span><div>Contact researcher<br><small>Finds recruiters &amp; managers</small></div><span class="tool">Clay</span></div>
+      <div class="spec" style="--c:var(--violet)"><span class="ic"><svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg></span><div>Market researcher<br><small>Roles, companies, salaries</small></div><span class="tool">Comet</span></div>
+      <div class="spec" style="--c:var(--amber)"><span class="ic"><svg class="lucide lucide-zap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /> </svg></span><div>Application assistant<br><small>Applies &amp; tracks</small></div><span class="tool">Simplify</span></div>
+      <div class="cost">5 tools · 5 logins · 5 subscriptions</div></div>
+    <div class="vsb r">vs</div>
+    <div class="allr" data-step="1"><h4>The all-rounder</h4>
+      <div class="big"><span class="ic"><svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /> </svg></span>Claude</div>
+      <ul>
+        <li><svg class="lucide lucide-puzzle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" /> </svg><span><b>Skills &amp; plugins</b> for job hunting: Job Spotter, Career Navigator, resume and cover-letter coaches</span></li>
+        <li><svg class="lucide lucide-plug" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 22v-5" /> <path d="M15 8V2" /> <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" /> <path d="M9 8V2" /> </svg><span><b>Connectors</b> to Indeed, ZipRecruiter, Dice, Gmail, Calendar and Drive</span></li>
+        <li><svg class="lucide lucide-globe" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /> </svg><span><b>Claude in Chrome</b> browses, fills forms and applies, with your approval</span></li>
+        <li><svg class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg><span>Writes the resume, cover letter and tracker <b>as real files</b></span></li>
+      </ul>
+      <div class="cost">1 subscription · 1 place for everything</div></div>
+  </div>
+  <div class="storynote" data-step="2">A specialist can still win its own lane: if all you need is deep contact discovery, Clay is great. Choose Claude when you want the <b style="color:var(--ink)">whole workflow</b> working together.</div>
+</section>
+
+<section class="slide m-amber" data-title="Claude plugins for job hunting" data-sec="Claude all-rounder">
+  <div class="hrow r"><div><span class="eyebrow"><b></b>Claude skills &amp; plugins</span><h2>10 job-hunting plugins</h2></div><a class="dlbtn" href="https://abhinayaanair.github.io/job-hunting-ai/assets/Job-Hunting-Plugins-and-Skills-for-Claude.xlsx" target="_blank" download><svg class="lucide lucide-file-spreadsheet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M8 13h2" /> <path d="M14 13h2" /> <path d="M8 17h2" /> <path d="M14 17h2" /> </svg> Download the full list (Excel)</a></div>
+  <div class="pgrid"><div class="pcard2 r pop"><span class="st on">INSTALLED</span><div class="nm">Job Spotter</div><div class="bf">Your main end-to-end workflow</div><div class="pub">Good Turn Studio</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">Career Navigator</div><div class="bf">Most feature-dense all-in-one</div><div class="pub">Todd Margolis</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">Career Compass</div><div class="bf">Honest fit checks before applying</div><div class="pub">Ben Schippers</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">Career Desk</div><div class="bf">Entry-level applicants</div><div class="pub">Naji Kayal</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">Job Search by Develop21</div><div class="bf">Searching several job boards at once</div><div class="pub">Develop21</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">PokeBot.ai Career Coach</div><div class="bf">Mock interviews and resume scoring</div><div class="pub">PokeBot</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">LinkedIn Career Intelligence</div><div class="bf">Deciding your next career move</div><div class="pub">rankedin</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">ResumeNext: LinkedIn Profile Review</div><div class="bf">Turning a LinkedIn profile into a resume</div><div class="pub">ResumeNext</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">ResumeNext: Cover Letter Checker</div><div class="bf">Polishing a cover letter</div><div class="pub">ResumeNext</div></div><div class="pcard2 r pop"><span class="st">AVAILABLE</span><div class="nm">career-brand</div><div class="bf">Developers building a public profile</div><div class="pub">career-brand contributors</div></div></div>
+</section>
+
+<section class="slide m-sky" data-title="Claude connectors & built-in skills" data-sec="Claude all-rounder">
+  <div class="hrow r"><div><span class="eyebrow"><b></b>Plugged into live data</span><h2>Connectors &amp; built-in skills</h2></div><a class="dlbtn" href="https://abhinayaanair.github.io/job-hunting-ai/assets/Job-Hunting-Plugins-and-Skills-for-Claude.xlsx" target="_blank" download><svg class="lucide lucide-file-spreadsheet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M8 13h2" /> <path d="M14 13h2" /> <path d="M8 17h2" /> <path d="M14 17h2" /> </svg> Download the full list (Excel)</a></div>
+  <div class="g3 mt">
+    <div class="kcol r" style="--c:var(--sky)"><h4><svg class="lucide lucide-plug" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 22v-5" /> <path d="M15 8V2" /> <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" /> <path d="M9 8V2" /> </svg> Job-board connectors</h4>
+      <div class="ki"><b>Indeed</b><span>Search jobs and fetch full job details</span></div>
+      <div class="ki"><b>ZipRecruiter</b><span>Live listings, no sign-in needed</span></div>
+      <div class="ki"><b>Dice</b><span>Active tech jobs, no sign-in needed</span></div></div>
+    <div class="kcol r" style="--c:var(--mint)"><h4><svg class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg> Built-in skills</h4>
+      <div class="ki"><b>docx</b><span>Resume or cover letter as a Word file</span></div>
+      <div class="ki"><b>pdf</b><span>Resume as a PDF; read job documents</span></div>
+      <div class="ki"><b>xlsx</b><span>Your own application tracker</span></div></div>
+    <div class="kcol r" style="--c:var(--amber)"><h4><svg class="lucide lucide-briefcase" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /> <rect width="20" height="14" x="2" y="6" rx="2" /> </svg> Offer stage</h4>
+      <div class="ki"><b>HR: comp-analysis</b><span>Benchmark an offer: bands and equity</span></div>
+      <div class="ki"><b>Career Navigator</b><span>Offer comparison and negotiation</span></div>
+      <div class="ki"><b>Career Desk</b><span>Compare multiple offers</span></div></div>
+  </div>
+</section>
+
+<section class="slide m-violet" data-title="Live demo: Claude in Chrome" data-sec="Claude all-rounder">
+  <div class="demo" style="--c:var(--amber)">
+    <div>
+      <span class="eyebrow r"><b></b>Live demo</span>
+      <h2 class="r" style="font-size:66px">Claude in Chrome</h2>
+      <p class="tl r">An agent in your browser's side panel. It reads the page, clicks, types, fills forms and applies, and it asks before anything important.</p>
+      <div class="script r"><h5>SET IT UP</h5><ol><li>Needs a paid Claude plan (Pro or higher)</li><li>Desktop Google Chrome → Chrome Web Store → "Claude" → Add to Chrome</li><li>Pin it, sign in, open the side panel</li><li>Give it a task (copy one from the next slide)</li><li>Keep approvals on; review before every submit</li></ol></div>
+    </div>
+    <div class="browser r right"><div class="bbar"><span class="dots"><i></i><i></i><i></i></span><span class="url">linkedin.com/jobs</span></div>
+      <div class="view" style="display:grid;grid-template-columns:1fr 300px;gap:18px;padding:18px">
+        <div><div class="sk" style="width:70%;height:16px"></div><div class="rows" style="margin-top:12px">
+          <div class="rw"><span class="av"></span><div><b>HR Business Partner</b><div style="color:var(--dim);font-size:14px">Gurugram · Easy Apply</div></div><span class="pill">92% fit</span></div>
+          <div class="rw"><span class="av" style="--c1:#ffc83d;--c2:#ff6b4a"></span><div><b>Talent Acquisition Lead</b><div style="color:var(--dim);font-size:14px">Gurugram · Easy Apply</div></div><span class="pill">88% fit</span></div>
+          <div class="rw"><span class="av" style="--c1:#2ee6a8;--c2:#3db8ff"></span><div><b>People Partner</b><div style="color:var(--dim);font-size:14px">Gurugram</div></div><span class="pill">81% fit</span></div></div></div>
+        <div class="cside"><div class="chd"><svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /> </svg> Claude</div><div class="bubble" style="font-size:14px;max-width:100%">Find HR roles in Gurgaon that match my resume and prepare the top 3 applications.</div>
+          <div class="task"><i><svg class="lucide lucide-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 6 9 17l-5-5" /> </svg></i>Searched LinkedIn Jobs</div><div class="task"><i><svg class="lucide lucide-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 6 9 17l-5-5" /> </svg></i>Matched 24 roles to resume</div><div class="task"><i><svg class="lucide lucide-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 6 9 17l-5-5" /> </svg></i>Tailored resume (Docs)</div><div class="task"><i><svg class="lucide lucide-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 6 9 17l-5-5" /> </svg></i>Filled 3 forms, waiting for you</div></div>
+      </div></div>
+  </div>
+</section>
+
+<section class="slide m-coral" data-title="Comet vs Claude" data-sec="Claude all-rounder">
+  <span class="eyebrow r"><b></b>Which agent, when?</span>
+  <h2 class="r">Comet vs <span class="grad">Claude</span></h2>
+  <table class="cmp r">
+    <tr><th></th><th>Comet (Perplexity)</th><th>Claude + Claude in Chrome</th></tr>
+    <tr><td>To start</td><td><span class="cm">●</span> Free browser; heavier agent use needs a paid plan</td><td><span class="cm">●</span> Chrome agent needs a paid plan (Pro or higher)</td></tr>
+    <tr><td>Search &amp; compare jobs</td><td><span class="cy">✓</span> Great for research and summaries</td><td><span class="cy">✓</span> Plus live job-board connectors</td></tr>
+    <tr><td>Fill forms &amp; apply</td><td><span class="cy">✓</span> With your approval</td><td><span class="cy">✓</span> With your approval</td></tr>
+    <tr><td>Connectors</td><td><span class="cm">●</span> Fewer integrations</td><td><span class="cy">✓</span> Gmail, Calendar, Drive, Indeed, ZipRecruiter, Dice and more</td></tr>
+    <tr><td>Job-hunting skills</td><td><span class="cn">✕</span> Not available</td><td><span class="cy">✓</span> Job Spotter, Career Navigator, resume coaches</td></tr>
+    <tr><td>Real files</td><td><span class="cm">●</span> Via Google Docs in the browser</td><td><span class="cy">✓</span> Word, PDF and Excel files directly</td></tr>
+  </table>
+  <div class="verdict2"><div class="vd r" style="--c:var(--violet)"><svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg><span><b>Just searching &amp; comparing?</b> Comet is enough, and free to start.</span></div><div class="vd r" style="--c:var(--amber)"><svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /> </svg><span><b>Want it to write, apply and track for you?</b> Use Claude.</span></div></div>
+</section>
+
+<section class="slide m-violet" data-title="Claude prompt library" data-sec="Claude all-rounder">
+  <span class="eyebrow r"><b></b>Copy into Claude or Claude in Chrome</span>
+  <h2 class="r">Claude prompt <span class="grad">library</span></h2>
+  <div class="plib r" data-lib="claude"></div>
+</section>
+
 <section class="slide m-sky" data-title="Quiz time 1" data-sec="Wrap-up">
   <span class="eyebrow r"><b></b>Quiz time · Round 1</span>
   <h2 class="r">Name that tool<span class="hic" style="--c:var(--pink)"><svg class="lucide lucide-brain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 18V5" /> <path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4" /> <path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294" /> <path d="M17.996 5.125a4 4 0 012.526 5.77" /> <path d="M18 18a4 4 0 002-7.465" /> <path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517" /> <path d="M6 18a4 4 0 01-2-7.465" /> <path d="M6.004 5.125a4 4 0 00-2.526 5.77" /> </svg></span></h2>
   <div class="qlist">
-    <div class="ql r"><b>1</b><span style="flex:1">All-in-one interview coach: resume feedback, STAR answers and cover letters in one dashboard?</span><span class="chip ok" data-step="1">Interviews.chat</span></div>
-    <div class="ql r"><b>2</b><span style="flex:1">Creates realistic mock interview environments and gives feedback after you answer?</span><span class="chip ok" data-step="2">interviewsby.ai</span></div>
-    <div class="ql r"><b>3</b><span style="flex:1">Screens resumes from a recruiter's perspective with AI ranking and fit analysis?</span><span class="chip ok" data-step="3">ResumeScreening.ai</span></div>
-    <div class="ql r"><b>4</b><span style="flex:1">An AI-native browser for real-time job research, browsing and opportunity comparison?</span><span class="chip ok" data-step="4">Comet</span></div>
+    <div class="ql r" data-opts="Yoodli|Interviews.chat|Clay|Simplify" data-ans="1"><b>1</b><span style="flex:1">All-in-one interview coach: resume feedback, STAR answers and cover letters in one dashboard?</span><span class="chip ok" data-step="1">Interviews.chat</span></div>
+    <div class="ql r" data-opts="TechPrep|RocketReach|interviewsby.ai|Teal" data-ans="2"><b>2</b><span style="flex:1">Creates realistic mock interview environments and gives feedback after you answer?</span><span class="chip ok" data-step="2">interviewsby.ai</span></div>
+    <div class="ql r" data-opts="ResumeScreening.ai|Comet|Yoodli|GetProspect" data-ans="0"><b>3</b><span style="flex:1">Screens resumes from a recruiter's perspective with AI ranking and fit analysis?</span><span class="chip ok" data-step="3">ResumeScreening.ai</span></div>
+    <div class="ql r" data-opts="Simplify|Clay|Interviews.chat|Comet" data-ans="3"><b>4</b><span style="flex:1">An AI-native browser for real-time job research, browsing and opportunity comparison?</span><span class="chip ok" data-step="4">Comet</span></div>
   </div>
 </section>
 
@@ -1069,10 +1337,10 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
   <span class="eyebrow r"><b></b>Quiz time · Round 2</span>
   <h2 class="r">Name that tool<span class="hic" style="--c:var(--pink)"><svg class="lucide lucide-brain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 18V5" /> <path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4" /> <path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294" /> <path d="M17.996 5.125a4 4 0 012.526 5.77" /> <path d="M18 18a4 4 0 002-7.465" /> <path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517" /> <path d="M6 18a4 4 0 01-2-7.465" /> <path d="M6.004 5.125a4 4 0 00-2.526 5.77" /> </svg></span></h2>
   <div class="qlist">
-    <div class="ql r"><b>1</b><span style="flex:1">Combines recruiter contact discovery with company intelligence and advanced targeting filters?</span><span class="chip ok" data-step="1">RocketReach</span></div>
-    <div class="ql r"><b>2</b><span style="flex:1">A leader wants to find industry experts and send personalised outreach without hours of manual research. Which tool?</span><span class="chip ok" data-step="2">Clay</span></div>
-    <div class="ql r"><b>3</b><span style="flex:1">AI communication coach that analyses filler words, pace and confidence in mock interviews?</span><span class="chip ok" data-step="3">Yoodli</span></div>
-    <div class="ql r"><b>4</b><span style="flex:1">Practise technical interview questions by role and topic like SQL, Python or Arrays?</span><span class="chip ok" data-step="4">TechPrep</span></div>
+    <div class="ql r" data-opts="Teal|RocketReach|Yoodli|TechPrep" data-ans="1"><b>1</b><span style="flex:1">Combines recruiter contact discovery with company intelligence and advanced targeting filters?</span><span class="chip ok" data-step="1">RocketReach</span></div>
+    <div class="ql r" data-opts="Simplify|interviewsby.ai|Clay|ResumeScreening.ai" data-ans="2"><b>2</b><span style="flex:1">A leader wants to find industry experts and send personalised outreach without hours of manual research. Which tool?</span><span class="chip ok" data-step="2">Clay</span></div>
+    <div class="ql r" data-opts="Yoodli|TechPrep|Comet|RocketReach" data-ans="0"><b>3</b><span style="flex:1">AI communication coach that analyses filler words, pace and confidence in mock interviews?</span><span class="chip ok" data-step="3">Yoodli</span></div>
+    <div class="ql r" data-opts="Interviews.chat|Clay|Yoodli|TechPrep" data-ans="3"><b>4</b><span style="flex:1">Practise technical interview questions by role and topic like SQL, Python or Arrays?</span><span class="chip ok" data-step="4">TechPrep</span></div>
   </div>
 </section>
 
@@ -1096,6 +1364,7 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
     <div class="kcol r" style="--c:var(--coral)"><h4>Find people</h4><a href="https://rocketreach.co" target="_blank">RocketReach<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a><a href="https://www.clay.com" target="_blank">Clay<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a><a href="https://getprospect.com" target="_blank">GetProspect<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a><a href="https://www.apollo.io" target="_blank">Apollo<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a></div>
     <div class="kcol r" style="--c:var(--mint)"><h4>Apply &amp; automate</h4><a href="https://www.perplexity.ai/comet" target="_blank">Comet browser<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a><a href="https://simplify.jobs" target="_blank">Simplify<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a><a href="https://www.linkedin.com/jobs" target="_blank">LinkedIn Jobs<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a><a href="https://chatgpt.com" target="_blank">ChatGPT<small><svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></small></a></div>
   </div>
+  <div class="row mt r" style="gap:14px"><a class="dlbtn" href="https://abhinayaanair.github.io/job-hunting-ai/guide.html" target="_blank"><svg class="lucide lucide-book-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 5v16" /> <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /> </svg> Open the session guide</a><a class="dlbtn alt" href="https://abhinayaanair.github.io/job-hunting-ai/assets/Job-Hunting-Plugins-and-Skills-for-Claude.xlsx" target="_blank" download><svg class="lucide lucide-file-spreadsheet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M8 13h2" /> <path d="M14 13h2" /> <path d="M8 17h2" /> <path d="M14 17h2" /> </svg> Claude plugins list (Excel)</a></div>
 </section>
 
 <!-- 41 ACTION PLAN -->
@@ -1120,7 +1389,7 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
   <p class="lead r">Post what you learned today on LinkedIn, tag <b style="color:var(--ink)">be10x</b>, and go get hired.</p>
 </section>
 
-<div id="chrome"><span id="sec"></span><span id="cnt"></span></div>
+<div id="chrome"><span id="sec"></span><span id="cnt"></span><span id="liveChip"></span></div>
 <div id="bar"></div>
 </div>
 
@@ -1133,9 +1402,11 @@ body.zoomed .slide.active{outline:34px solid var(--mint);outline-offset:46px}
   <div id="cdSet"><button data-p="5">5</button><button data-p="10">10</button><button data-p="15">15</button><button data-p="30">30</button><button data-p="60">60</button></div>
   <div class="cdp-row adj"><button data-m="-1">− 1 min</button><button data-m="1">+ 1 min</button></div>
 </div>
-<div id="nav"><button id="mapbtn" title="Map (O)"><svg class="lucide lucide-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /> <path d="M15 5.764v15" /> <path d="M9 3.236v15" /> </svg></button><button id="cdBtn" title="Countdown timer (C)"><svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /> </svg><span id="cdMini"></span></button><button id="bPrev" title="Previous (←)"><svg class="lucide lucide-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7" /> <path d="M19 12H5" /> </svg></button><button id="bGrid" title="Overview (G)"><svg class="lucide lucide-layout-grid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="7" height="7" x="3" y="3" rx="1" /> <rect width="7" height="7" x="14" y="3" rx="1" /> <rect width="7" height="7" x="14" y="14" rx="1" /> <rect width="7" height="7" x="3" y="14" rx="1" /> </svg></button><button id="bFs" title="Fullscreen (F)"><svg class="lucide lucide-maximize" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 3H5a2 2 0 0 0-2 2v3" /> <path d="M21 8V5a2 2 0 0 0-2-2h-3" /> <path d="M3 16v3a2 2 0 0 0 2 2h3" /> <path d="M16 21h3a2 2 0 0 0 2-2v-3" /> </svg></button><button id="bNext" title="Next (→)"><svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></button></div>
+<div id="vpanel"></div>
+<div id="liveModal" class="lmodal"><div class="lcard" id="liveCard"></div></div>
+<div id="nav"><button id="mapbtn" title="Map (O)"><svg class="lucide lucide-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /> <path d="M15 5.764v15" /> <path d="M9 3.236v15" /> </svg></button><button id="cdBtn" title="Countdown timer (C)"><svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /> </svg><span id="cdMini"></span></button><button id="liveBtn" title="Live quiz (L)"><svg class="lucide lucide-radio-tower" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" /> <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" /> <circle cx="12" cy="9" r="2" /> <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" /> <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" /> <path d="M9.5 18h5" /> <path d="m8 22 4-11 4 11" /> </svg></button><button id="bGuide" title="Session guide"><svg class="lucide lucide-book-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 5v16" /> <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /> </svg></button><button id="bPrev" title="Previous (←)"><svg class="lucide lucide-arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7" /> <path d="M19 12H5" /> </svg></button><button id="bGrid" title="Overview (G)"><svg class="lucide lucide-layout-grid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <rect width="7" height="7" x="3" y="3" rx="1" /> <rect width="7" height="7" x="14" y="3" rx="1" /> <rect width="7" height="7" x="14" y="14" rx="1" /> <rect width="7" height="7" x="3" y="14" rx="1" /> </svg></button><button id="bFs" title="Fullscreen (F)"><svg class="lucide lucide-maximize" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 3H5a2 2 0 0 0-2 2v3" /> <path d="M21 8V5a2 2 0 0 0-2-2h-3" /> <path d="M3 16v3a2 2 0 0 0 2 2h3" /> <path d="M16 21h3a2 2 0 0 0 2-2v-3" /> </svg></button><button id="bNext" title="Next (→)"><svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></button></div>
 <div id="grid"><h4>All slides</h4><ol id="glist"></ol></div>
-<div id="help"><kbd>→</kbd>/<kbd>Space</kbd> next · <kbd>←</kbd> back · <kbd>O</kbd> map · <kbd>G</kbd> list · <kbd>F</kbd> fullscreen · <kbd>T</kbd> activity timer · <kbd>C</kbd> countdown</div>
+<div id="help"><kbd>→</kbd>/<kbd>Space</kbd> next · <kbd>←</kbd> back · <kbd>O</kbd> map · <kbd>G</kbd> list · <kbd>F</kbd> fullscreen · <kbd>L</kbd> join live quiz</div>
 <canvas id="confetti"></canvas>
 <div id="pv"></div>
 
@@ -1154,24 +1425,22 @@ function fit(){}
 addEventListener('resize',fit);fit();
 
 /* ---------- prompts ---------- */
-const ICON_TIP='<svg style="color:var(--amber)" class="lucide lucide-lightbulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /> </svg>';
-const P=[
- {t:'Prompt 1 · Finding jobs',p:'I am looking for a high-paying [HR] job in [Gurgaon]. With the help of the resume that I have attached here, tell me the first 3 jobs that you can find with Easy Apply that match my profile.',tip:'Open LinkedIn in Comet first, attach your resume, then ask the Assistant.'},
- {t:'Prompt 2 · Applying (Easy Apply + normal)',p:'I want to apply for the job of [HR Specialist] at [X Company]. Use my attached resume to fill in the application, and stop before submitting so I can review it.',tip:'You approve every final submission. Check personal details, salary and declarations.'},
- {t:'Prompt 3 · Personalised connection note',p:'Look at [name]\'s profile and create a connection note for them. It should be personalised.\n\nOR: I want to send a personalised connection note to the hiring manager of the [Y role] opening at [Z Company]. Help me write it.',tip:'Open the person\'s LinkedIn profile first so the agent can read it.'},
- {t:'Prompt 4 · Tailor resume in Google Docs',p:'I want to apply for this job, [X role], but I don\'t think my resume is currently a good fit. Review the job requirements and modify my resume in Google Docs to be a better fit for this job.',tip:'Keep the original. Ask the agent to work on a copy.'},
- {t:'Prompt 5 · Summarise articles & videos',p:'Summarise this video.\n\nMove to the next interesting part of the video.',tip:'Great for company podcasts, CEO interviews and earnings calls before an interview.'},
- {t:'Prompt 6 · Payments (show only)',p:'Buy [product] from [Amazon] and pay.',tip:'Demo the idea only. Never let an agent pay or submit without your explicit approval.'}
-];
-const tabs=document.getElementById('ptabs');let pIdx=0;
-P.forEach((x,i)=>{const b=document.createElement('button');b.textContent=(i+1)+'. '+x.t.split('· ')[1];b.onclick=()=>showPrompt(i);tabs.appendChild(b)});
+const ICON_TIP="<svg style=\"color:var(--amber)\" class=\"lucide lucide-lightbulb\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\" /> <path d=\"M9 18h6\" /> <path d=\"M10 22h4\" /> </svg>", ICON_COPY="<svg class=\"lucide lucide-copy\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\" /> <path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\" /> </svg>", ICON_CHECK="<svg class=\"lucide lucide-check\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M20 6 9 17l-5-5\" /> </svg>";
+const LIBS={"comet": [{"t": "Prompt 1 · Finding jobs", "p": "I am looking for a high-paying [HR] job in [Gurgaon]. With the help of the resume that I have attached here, tell me the first 3 jobs that you can find with Easy Apply that match my profile.", "tip": "Open LinkedIn in Comet first, attach your resume, then ask the Assistant."}, {"t": "Prompt 2 · Applying (Easy Apply + normal)", "p": "I want to apply for the job of [HR Specialist] at [X Company]. Use my attached resume to fill in the application, and stop before submitting so I can review it.", "tip": "You approve every final submission. Check personal details, salary and declarations."}, {"t": "Prompt 3 · Personalised connection note", "p": "Look at [name]'s profile and create a connection note for them. It should be personalised.\n\nOR: I want to send a personalised connection note to the hiring manager of the [Y role] opening at [Z Company]. Help me write it.", "tip": "Open the person's LinkedIn profile first so the agent can read it."}, {"t": "Prompt 4 · Tailor resume in Google Docs", "p": "I want to apply for this job, [X role], but I don't think my resume is currently a good fit. Review the job requirements and modify my resume in Google Docs to be a better fit for this job.", "tip": "Keep the original. Ask the agent to work on a copy."}, {"t": "Prompt 5 · Summarise articles & videos", "p": "Summarise this video.\n\nMove to the next interesting part of the video.", "tip": "Great for company podcasts, CEO interviews and earnings calls before an interview."}, {"t": "Prompt 6 · Payments (show only)", "p": "Buy [product] from [Amazon] and pay.", "tip": "Demo the idea only. Never let an agent pay or submit without your explicit approval."}], "resume": [{"t": "Prompt 1 · ATS-optimised resume", "p": "Act as an expert resume writer. Create a 100% ATS-optimised, reverse-chronological resume using industry-specific keywords from the attached job description.\nTailor the resume exactly to the job description. Include only relevant information, and make sure each section has JD keywords.\nWork-experience bullets must show measurable outcomes, numbers and results.", "tip": "Attach the job description and your current resume."}, {"t": "Prompt 2 · ATS score check", "p": "Act as an advanced Applicant Tracking System (ATS) and a professional recruiter. I will share my resume and the job description I am applying for. Give me an ATS compatibility score out of 100.\n- Analyse my resume against the job description as an ATS would\n- Highlight formatting issues that may reduce ATS readability\n- Check role alignment with the job description\n- Point out bullet points that are too generic or unclear\n- Suggest exact keyword-rich rewrites for improvement", "tip": "Run this after prompt 1 to check the new version."}], "star": [{"t": "Prompt 1 · Bullet → STAR answer", "p": "Take this resume bullet and expand it into a strong interview answer using the STAR method. Make it sound confident, structured and natural for a 60-second response.\n\nBullet: [Led a team to improve onboarding experience for new hires.]", "tip": "Swap in any bullet from your own resume."}, {"t": "Prompt 2 · Rough notes → STAR answer", "p": "Help me answer \"Tell me about a time you demonstrated leadership.\" Here are my rough notes: [team was delayed, there was a prioritisation issue, I figured out the bottleneck, I ensured delivery with daily check-ins]. Convert this into the STAR framework for a confident 60-second response.", "tip": "Messy notes are fine. That is the point."}], "claude": [{"t": "Prompt 1 · Find & shortlist", "p": "Search LinkedIn Jobs for [HR Business Partner] roles in [Gurgaon] posted in the last 7 days. Compare each one against my attached resume and give me a shortlist of the top 5 with a fit score out of 100 and one line on why.", "tip": "Use Claude in Chrome with LinkedIn open, or the Indeed / ZipRecruiter connector."}, {"t": "Prompt 2 · Tailor & apply", "p": "Open this job: [paste link]. Tailor my resume to its requirements as a new Google Doc, draft a 120-word cover note, then fill in the application form. Stop before the final submit so I can review everything.", "tip": "Always review before you submit."}, {"t": "Prompt 3 · Recruiter outreach", "p": "Find the recruiter or hiring manager for the [role] opening at [company] on LinkedIn and draft a personalised connection note under 300 characters that mentions one specific thing from their profile.", "tip": "You send the note yourself. Never let it mass-message."}, {"t": "Prompt 4 · Application tracker", "p": "Create an Excel tracker with columns Company, Role, Link, Date applied, Contact, Follow-up date and Status, and add every job we shortlisted today. Set the follow-up date to 5 days after applying.", "tip": "Uses the built-in xlsx skill: you get a real Excel file."}, {"t": "Prompt 5 · Job Spotter plugin", "p": "Using Job Spotter, find [Product Analyst] roles in [Bangalore], match them against my CV, and prepare applications for the top 3, including a tailored resume and cover letter for each.", "tip": "Install Job Spotter from the plugin directory first."}]};
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function copyText(t,btn){const ok=()=>{if(!btn)return;btn.classList.add('done');const h=btn.innerHTML;btn.innerHTML=ICON_CHECK+(btn.dataset.label===undefined&&btn.textContent.trim()?' Copied':'');setTimeout(()=>{btn.classList.remove('done');btn.innerHTML=h},1400)};
+  const fb=()=>{const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()};
+  if(navigator.clipboard&&window.isSecureContext!==false)navigator.clipboard.writeText(t).then(ok).catch(fb);else fb()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(b){e.stopPropagation();copyText(b.dataset.copy,b)}},true);
 let typeTok=0;
-function showPrompt(i){pIdx=i;[...tabs.children].forEach((b,j)=>b.classList.toggle('on',j===i));
-  document.getElementById('ptitle').textContent=P[i].t;document.getElementById('ptip').innerHTML=ICON_TIP+' '+P[i].tip;
-  const el=document.getElementById('ptext');const full=P[i].p;const tok=++typeTok;let n=0;
-  (function step(){if(tok!==typeTok)return;n=Math.min(full.length,n+3);el.innerHTML=esc(full.slice(0,n)).replace(/\[([^\]]*)\]/g,'<span class="ph">[$1]</span>')+(n<full.length?'<span class="caret"></span>':'');if(n<full.length)setTimeout(step,14)})();}
-document.getElementById('pcopy').onclick=e=>{navigator.clipboard?.writeText(P[pIdx].p).then(()=>{e.target.textContent='Copied ✓';setTimeout(()=>e.target.textContent='Copy',1400)}).catch(()=>{})};
+document.querySelectorAll('.plib').forEach(el=>{const L=LIBS[el.dataset.lib]||[];
+  el.innerHTML='<div class="tabs"></div><div class="pbox"><button class="copy"></button><div class="ptitle"></div><div class="ptext"></div><div class="ptip"></div></div>';
+  const tabs=el.querySelector('.tabs');L.forEach((x,i)=>{const b=document.createElement('button');b.textContent=(i+1)+'. '+x.t.split('· ')[1];b.onclick=()=>libShow(el,i);tabs.appendChild(b)});
+  el.querySelector('.copy').innerHTML=ICON_COPY+' Copy';el.querySelector('.copy').onclick=e=>{e.stopPropagation();copyText(L[el._i||0].p,e.currentTarget)};el._i=0});
+function libShow(el,i){const L=LIBS[el.dataset.lib];el._i=i;[...el.querySelector('.tabs').children].forEach((b,j)=>b.classList.toggle('on',j===i));
+  el.querySelector('.ptitle').textContent=L[i].t;el.querySelector('.ptip').innerHTML=ICON_TIP+' '+L[i].tip;
+  const tx=el.querySelector('.ptext');const full=L[i].p;const tok=++typeTok;let n=0;
+  (function step(){if(tok!==typeTok)return;n=Math.min(full.length,n+4);tx.innerHTML=esc(full.slice(0,n)).replace(/\[([^\]]*)\]/g,'<span class="ph">[$1]</span>')+(n<full.length?'<span class="caret"></span>':'');if(n<full.length)setTimeout(step,12)})()}
 
 /* ---------- chaos tabs ---------- */
 const chaos=document.getElementById('chaos');
@@ -1194,7 +1463,7 @@ function enter(s){
     timers.push(setTimeout(()=>v.style.strokeDashoffset=628*(1-r.dataset.val/100),500))});
   const tasks=s.querySelectorAll('.task');tasks.forEach(t=>t.classList.remove('done'));
   tasks.forEach((t,i)=>timers.push(setTimeout(()=>t.classList.add('done'),3800+i*700)));
-  if(s.querySelector('#ptabs'))showPrompt(0);
+  s.querySelectorAll('.plib').forEach(l=>libShow(l,0));
   if(cur===slides.length-1)timers.push(setTimeout(()=>confetti(220),600));
 }
 
@@ -1210,6 +1479,7 @@ function go(n,showAll){
   s.querySelectorAll('.quiz').forEach(q=>{q.classList.toggle('revealed',!!showAll);q.querySelectorAll('.opt').forEach(o=>{o.classList.remove('wrong');o.classList.toggle('right',!!showAll&&o.hasAttribute('data-correct'))})});
   s.querySelectorAll('.abc').forEach(a=>a.classList.remove('won','lost'));
   if(showAll)applyAB(s);
+  if(typeof liveRestore==='function')liveRestore(s,showAll);
   void s.offsetWidth;s.classList.add('active');
   mode={kind:'slide'};document.body.classList.remove('zoomed');
   if(typeof flyTo==='function'&&canvasReady){const ng=slideInfo[cur].g;flyTo(camSlide(cur),()=>enter(s),(pg!==null&&pg!==ng)?camFrame(circleOf(pg),circleOf(ng)):null,pg===ng)}else enter(s);
@@ -1221,11 +1491,12 @@ function next(){
   if(mode.kind==='map'){go(cur);return}
   const s=slides[cur];
   const hidden=stepsOf(s).filter(e=>!e.classList.contains('shown'));
-  if(hidden.length){const m=Math.min(...hidden.map(e=>+e.dataset.step));hidden.filter(e=>+e.dataset.step===m).forEach(e=>e.classList.add('shown'));applyAB(s);
+  if(hidden.length){const m=Math.min(...hidden.map(e=>+e.dataset.step));hidden.filter(e=>+e.dataset.step===m).forEach(e=>e.classList.add('shown'));applyAB(s);liveSteps(s);
     if(!stepsOf(s).some(e=>!e.classList.contains('shown'))&&s.querySelector('.qlist .chip[data-step]'))confetti(90);ui();return}
-  const f=s.querySelector('.flip:not(.flipped)');if(f){f.classList.add('flipped');return}
-  const q=s.querySelector('.quiz:not(.revealed)');if(q){reveal(q);return}
-  if(s.querySelector('#ptabs')&&pIdx<P.length-1){showPrompt(pIdx+1);return}
+  const vLive=ROLE==='viewer'&&live&&live.topic;
+  const f=s.querySelector('.flip:not(.flipped)');if(f&&!vLive){f.classList.add('flipped');if(f._poll)liveRevP(f._poll);return}
+  const q=s.querySelector('.quiz:not(.revealed)');if(q&&!vLive){reveal(q);return}
+  {const l=s.querySelector('.plib');if(l&&l._i<LIBS[l.dataset.lib].length-1){libShow(l,l._i+1);return}}
   advance();
 }
 function prev(){
@@ -1234,14 +1505,13 @@ function prev(){
   if(shown.length){const m=Math.max(...shown.map(e=>+e.dataset.step));shown.filter(e=>+e.dataset.step===m).forEach(e=>e.classList.remove('shown'));s.querySelectorAll('.abc').forEach(a=>a.classList.remove('won','lost'));applyAB(s);ui();return}
   go(cur-1,true);
 }
-function reveal(q){q.classList.add('revealed');q.querySelectorAll('.opt').forEach(o=>{o.classList.remove('wrong');if(o.hasAttribute('data-correct'))o.classList.add('right')});confetti(70)}
-document.querySelectorAll('.quiz .opt').forEach(o=>o.addEventListener('click',()=>{const q=o.closest('.quiz');if(q.classList.contains('revealed'))return;
-  if(o.hasAttribute('data-correct'))reveal(q);else{o.classList.remove('wrong');void o.offsetWidth;o.classList.add('wrong')}}));
-document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('flipped')));
+function reveal(q){q.classList.add('revealed');q.querySelectorAll('.opt').forEach(o=>{o.classList.remove('wrong');if(o.hasAttribute('data-correct'))o.classList.add('right')});confetti(70);if(q._poll)liveRevP(q._poll)}
+document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>{if(ROLE==='viewer'&&live&&live.topic)return;f.classList.toggle('flipped');if(f.classList.contains('flipped')&&f._poll)liveRevP(f._poll)}));
 document.addEventListener('click',e=>{if(e.target.closest('button'))setTimeout(()=>document.activeElement&&document.activeElement.blur(),0)});
 
 /* ---------- reactions ---------- */
 document.querySelectorAll('.reacts button').forEach(b=>b.addEventListener('click',()=>{
+  if(ROLE==='viewer'&&live&&live.topic&&Date.now()-(live.lastR||0)>1200){live.lastR=Date.now();liveSend({k:'r',e:[...b.parentNode.children].indexOf(b),u:live.uid},'r')}
   for(let i=0;i<6;i++){const e=document.createElement('span');e.className='floater';e.innerHTML=b.innerHTML;e.style.color=b.style.color;
     e.style.left=(80+Math.random()*700)+'px';e.style.top=(620+Math.random()*120)+'px';e.style.setProperty('--rot',(Math.random()*60-30)+'deg');e.style.animationDelay=(i*.12)+'s';
     b.closest('.slide').appendChild(e);setTimeout(()=>e.remove(),3200)}}));
@@ -1268,6 +1538,7 @@ const glist=document.getElementById('glist');
 slides.forEach((s,i)=>{const li=document.createElement('li');const b=document.createElement('button');b.innerHTML='<small>'+(i+1)+' · '+s.dataset.sec+'</small>'+s.dataset.title;b.onclick=()=>{go(i);grid(false)};li.appendChild(b);glist.appendChild(li)});
 function grid(on){const g=document.getElementById('grid');g.classList.toggle('on',on===undefined?!g.classList.contains('on'):on);[...glist.querySelectorAll('button')].forEach((b,i)=>b.classList.toggle('cur',i===cur))}
 function ui(){
+  if(typeof liveBroadcastPos==='function')liveBroadcastPos();
   if(canvasReady){const cg=curGroup();groups.forEach((g,i)=>g.el&&g.el.classList.toggle('cur',i===cg))}
   if(mode.kind!=='slide'){document.getElementById('sec').textContent=mode.kind==='map'?'Full map':groups[mode.k].name+' · overview';document.getElementById('cnt').textContent=mode.kind==='map'?'':'Section '+(mode.k+1)+' / '+groups.length;sendPV();return}
   document.getElementById('sec').textContent=slides[cur].dataset.sec;document.getElementById('cnt').textContent=(cur+1)+' / '+slides.length;
@@ -1396,15 +1667,17 @@ function showMap(){mode={kind:'map'};document.body.classList.add('zoomed');flyTo
 function advance(){const n=cur+1;if(n>=slides.length)return;const gn=slideInfo[n].g,gc=slideInfo[cur].g;if(gn!==gc&&gn>=0)showIsland(gn);else go(n)}
 
 
-addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;const k=e.key;
+addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.target&&e.target.closest&&e.target.closest('input,textarea'))return;const k=e.key;
   if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();next()}
   else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();prev()}
   else if(k==='Home')go(0);else if(k==='End')go(slides.length-1);
-  else if(k==='g'||k==='G')grid();else if(k==='Escape'){grid(false);cdOpen(false)}
+  else if(k==='g'||k==='G')grid();else if(k==='Escape'){grid(false);cdOpen(false);liveModal(false)}
   else if(k==='o'||k==='O'||k==='m'||k==='M'){if(mode.kind==='map')go(cur);else showMap()}
   else if(k==='f'||k==='F')fs();
   else if(k==='t'||k==='T')tToggle();
-  else if(k==='c'||k==='C')cdToggle();});
+  else if(k==='c'||k==='C')cdToggle();
+  else if(k==='l'||k==='L')liveModal();
+  else if((k==='r'||k==='R')&&ROLE==='trainer')document.body.classList.toggle('hide-results');});
 setTimeout(()=>document.getElementById('help').style.opacity=0,5000);
 
 /* ---------- countdown ---------- */
@@ -1437,7 +1710,170 @@ cdTog.onclick=cdToggle;document.getElementById('cdRst').onclick=cdReset;
 document.querySelectorAll('#cdSet [data-p]').forEach(b=>b.onclick=()=>cdSet(+b.dataset.p*60));
 document.querySelectorAll('#cdPop [data-m]').forEach(b=>b.onclick=()=>{const d=+b.dataset.m*60;if(cdIv){cdEnd+=d*1000;cdTotal=Math.max(60,cdTotal+d);cdDraw()}else{cdTotal=Math.max(60,cdTotal+d);cdLeft=Math.min(cdTotal,Math.max(60,cdLeft+d));cdDraw()}});
 cdDraw();
+
+/* ---------- LIVE QUIZ (Mentimeter-style) ---------- */
+var ROLE=document.documentElement.dataset.role||'trainer';
+var RELAY='https://ntfy.sh/', SITE_URL='https://abhinayaanair.github.io/job-hunting-ai/';
+var live={code:null,topic:null,es:null,uid:null,votes:{},people:new Set(),rev:{},follow:true,mine:{},replay:false,goBuf:null,lastGo:null,applying:false,lastSent:null,sendT:null,lastR:0};
+var polls=[],pollMap={};
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}
+function rid(n){const a='ABCDEFGHJKMNPQRSTUVWXYZ23456789';const r=new Uint32Array(n);try{crypto.getRandomValues(r)}catch(e){for(let i=0;i<n;i++)r[i]=Math.floor(Math.random()*4e9)}let s='';r.forEach(x=>s+=a[x%a.length]);return s}
+live.uid=lsGet('jh_uid')||rid(12);lsSet('jh_uid',live.uid);
+function topicFor(c){return 'be10x-jh-'+String(c).toLowerCase()}
+function liveSend(obj,tag){if(!live.topic)return;fetch(RELAY+live.topic+'?tags='+tag,{method:'POST',body:JSON.stringify(obj)}).catch(()=>{})}
+function liveConnect(code){
+  if(live.es){live.es.close();live.es=null}
+  live.code=code;live.topic=topicFor(code);live.votes={};live.people=new Set();live.rev={};live.mine={};live.follow=true;
+  live.replay=true;live.goBuf=null;
+  setTimeout(()=>{live.replay=false;if(ROLE==='viewer'&&live.goBuf&&live.follow)applyGo(live.goBuf);live.goBuf=null},1600);
+  const es=new EventSource(RELAY+live.topic+'/sse?since=all'+(ROLE==='viewer'?'&tags=c':''));live.es=es;
+  es.onmessage=ev=>{let d,m;try{d=JSON.parse(ev.data)}catch(e){return}if(d.event&&d.event!=='message')return;try{m=JSON.parse(d.message)}catch(e){return}liveOn(m,d.time||0)};
+  if(ROLE==='viewer')liveSend({k:'j',u:live.uid},'j');
+  else{live.lastSent=null;setTimeout(()=>{live.lastSent=null;liveBroadcastPos()},400)}
+  polls.forEach(renderPoll);liveUI();
+}
+function liveDisconnect(){if(live.es){live.es.close();live.es=null}live.code=null;live.topic=null;polls.forEach(p=>{p.opts.forEach(o=>o.classList.remove('picked'));renderPoll(p)});liveUI()}
+function liveOn(m,t){
+  const fresh=(Date.now()/1000-t)<10;
+  if(ROLE==='trainer'){
+    if(m.k==='j'&&m.u){const isNew=!live.people.has(m.u);live.people.add(m.u);liveUI();if(isNew&&fresh){live.lastSent=null;liveBroadcastPos()}}
+    else if(m.k==='v'&&pollMap[m.p]&&m.u){(live.votes[m.p]=live.votes[m.p]||{})[m.u]=m.o;live.people.add(m.u);renderPoll(pollMap[m.p]);liveUI()}
+    else if(m.k==='r'&&fresh)floatReaction(m.e);
+  }else{
+    if(m.k==='rev'&&pollMap[m.p]){live.rev[m.p]=1;applyRev(pollMap[m.p],live.replay);renderVPanel()}
+    else if(m.k==='go'||m.k==='isl'){live.lastGo=m;if(live.replay)live.goBuf=m;else if(live.follow)applyGo(m)}
+    else if(m.k==='end'&&!live.replay){lsSet('jh_join',null);liveDisconnect();liveToast('The presenter ended the live session')}
+  }
+}
+function applyGo(m){live.applying=true;try{if(m.k==='go'&&m.i!==cur||mode.kind!=='slide'&&m.k==='go')go(m.i);else if(m.k==='isl'&&!(mode.kind==='island'&&mode.k===m.g))showIsland(m.g)}finally{live.applying=false}}
+function liveBroadcastPos(){
+  if(!live||!live.topic)return;
+  if(ROLE==='trainer'){liveUI();clearTimeout(live.sendT);live.sendT=setTimeout(()=>{const m=mode.kind==='island'?{k:'isl',g:mode.k}:mode.kind==='slide'?{k:'go',i:cur}:null;if(!m)return;const key=JSON.stringify(m);if(key===live.lastSent)return;live.lastSent=key;liveSend(m,'c')},700)}
+  else{renderVPanel()}
+  if(ROLE==='viewer'&&!live.applying&&live.follow&&!live.replay&&canvasReady){const g=live.lastGo;const same=g&&((g.k==='go'&&mode.kind==='slide'&&g.i===cur)||(g.k==='isl'&&mode.kind==='island'&&g.g===mode.k));if(!same){live.follow=false;liveUI()}}
+}
+function mkBar(el){if(el.querySelector(':scope>.lbar'))return;el.classList.add('lv');el.insertAdjacentHTML('beforeend','<i class="lbar"></i><b class="lcnt"></b>')}
+function addPoll(id,kind,el,opts,correct){const p={id,kind,el,opts,correct};polls.push(p);pollMap[id]=p;el._poll=p;return p}
+function liveSetup(){
+  let qi=0,ti=0,qt=0;
+  document.querySelectorAll('.quiz').forEach(q=>{const o=[...q.querySelectorAll('.opt')];addPoll('quiz'+(qi++),'quiz',q,o,o.findIndex(x=>x.hasAttribute('data-correct')))});
+  document.querySelectorAll('.flip').forEach(f=>{const row=document.createElement('div');row.className='tfrow';row.innerHTML='<button class="tfb">True</button><button class="tfb">False</button>';f.appendChild(row);addPoll('tf'+(ti++),'tf',f,[...row.children],f.querySelector('.b.t')?0:1)});
+  const hs=document.querySelector('.hunters');if(hs)addPoll('hunt','hunt',hs,[...hs.querySelectorAll('.hunter')],-1);
+  const ab=document.querySelector('.ab');if(ab)addPoll('ab','ab',ab,[...ab.querySelectorAll('.abc')],1);
+  document.querySelectorAll('.ql[data-opts]').forEach(ql=>{const box=document.createElement('div');box.className='qopts';ql.dataset.opts.split('|').forEach(n=>{const b=document.createElement('button');b.className='qopt';b.textContent=n;box.appendChild(b)});ql.appendChild(box);addPoll('qt'+(qt++),'qt',ql,[...box.children],+ql.dataset.ans)});
+  polls.forEach(p=>p.opts.forEach((o,i)=>{mkBar(o);o.addEventListener('click',e=>optClick(p,i,e))}));
+}
+function markPicked(p,i){p.opts.forEach((o,j)=>o.classList.toggle('picked',j===i))}
+function optClick(p,i,e){
+  if(ROLE==='trainer'){
+    if(p.kind==='quiz'){const q=p.el;if(q.classList.contains('revealed'))return;if(i===p.correct)reveal(q);else{const o=p.opts[i];o.classList.remove('wrong');void o.offsetWidth;o.classList.add('wrong')}}
+    else if(p.kind==='tf'){e.stopPropagation();p.el.classList.add('flipped');liveRevP(p)}
+    else if(p.kind==='qt'){const c=p.el.querySelector('.chip[data-step]');if(c)c.classList.add('shown');markQt(p);liveRevP(p);ui()}
+    return}
+  e.stopPropagation();
+  if(live.topic){if(live.rev[p.id]&&p.kind!=='hunt')return;live.mine[p.id]=i;markPicked(p,i);liveSend({k:'v',p:p.id,o:i,u:live.uid},'v');liveToast('Answer sent');renderVPanel();return}
+  markPicked(p,i);
+  if(p.kind==='quiz'){if(i===p.correct)reveal(p.el);else{const o=p.opts[i];o.classList.remove('wrong');void o.offsetWidth;o.classList.add('wrong')}}
+  else if(p.kind==='tf'){p.el.classList.add('flipped');p.opts[i].classList.add(i===p.correct?'tright':'twrong')}
+  else if(p.kind==='qt'){live.mine[p.id]=i;applyRev(p,false)}
+}
+function markQt(p){p.opts.forEach((o,j)=>o.classList.toggle('right',j===p.correct))}
+function liveRevP(p){if(ROLE!=='trainer'||!live.topic||!p||live.rev[p.id])return;live.rev[p.id]=1;liveSend({k:'rev',p:p.id},'c')}
+function liveSteps(s){
+  s.querySelectorAll('.ql[data-opts]').forEach(ql=>{const c=ql.querySelector('.chip[data-step]');if(c&&c.classList.contains('shown')&&ql._poll){markQt(ql._poll);liveRevP(ql._poll)}});
+  const ab=s.querySelector('.ab');if(ab&&ab._poll&&s.querySelector('#abB [data-step].shown'))liveRevP(ab._poll);
+}
+function applyRev(p,quiet){
+  const mine=live.mine[p.id];
+  if(p.kind==='quiz'){p.el.classList.add('revealed');p.opts.forEach((o,i)=>{o.classList.remove('wrong');o.classList.toggle('right',i===p.correct)});if(mine!=null&&mine!==p.correct)p.opts[mine].classList.add('wrongp');if(!quiet&&mine===p.correct)confetti(70)}
+  else if(p.kind==='tf'){p.el.classList.add('flipped');if(mine!=null)p.opts[mine].classList.add(mine===p.correct?'tright':'twrong')}
+  else if(p.kind==='qt'){const c=p.el.querySelector('.chip[data-step]');if(c)c.classList.add('shown');markQt(p);if(mine!=null&&mine!==p.correct)p.opts[mine].classList.add('wrongp');if(!quiet&&mine===p.correct)confetti(50)}
+  else if(p.kind==='ab'){const sl=p.el.closest('.slide');sl.querySelectorAll('[data-step]').forEach(x=>x.classList.add('shown'));applyAB(sl)}
+}
+function liveRestore(s,showAll){
+  s.querySelectorAll('.qopt').forEach(o=>o.classList.remove('right','wrongp'));
+  s.querySelectorAll('.tfb').forEach(o=>o.classList.remove('tright','twrong'));
+  polls.forEach(p=>{if(!s.contains(p.el))return;
+    if(ROLE==='trainer'){if(p.kind==='qt'){const c=p.el.querySelector('.chip[data-step]');if(c&&c.classList.contains('shown'))markQt(p)}renderPoll(p);return}
+    if(live.mine[p.id]!=null)markPicked(p,live.mine[p.id]);
+    if(live.topic&&live.rev[p.id])applyRev(p,true);
+    else if(showAll&&p.kind==='qt')markQt(p);
+  });
+}
+function renderPoll(p){
+  const v=(ROLE==='trainer'&&live.topic&&live.votes[p.id])||{};const c=p.opts.map(()=>0);Object.values(v).forEach(o=>{if(c[o]!=null)c[o]++});const tot=c.reduce((a,b)=>a+b,0);
+  p.opts.forEach((o,i)=>{const pct=tot?Math.round(c[i]/tot*100):0;const bar=o.querySelector(':scope>.lbar'),cn=o.querySelector(':scope>.lcnt');if(bar)bar.style.width=pct+'%';if(cn)cn.textContent=tot?c[i]+' · '+pct+'%':''});
+  p.total=tot;
+}
+function floatReaction(i){const b=document.querySelectorAll('.reacts button')[i];if(!b)return;const e=document.createElement('span');e.className='rfloat';e.innerHTML=b.innerHTML;e.style.color=b.style.color;
+  e.style.left=(55+Math.random()*38)+'vw';e.style.top=(68+Math.random()*16)+'vh';e.style.setProperty('--rot',(Math.random()*60-30)+'deg');document.body.appendChild(e);setTimeout(()=>e.remove(),2800)}
+let toastT=null;
+function liveToast(msg){let t=document.getElementById('ltoast');if(!t){t=document.createElement('div');t.id='ltoast';t.style.cssText='position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:46;padding:10px 18px;border-radius:12px;background:rgba(20,16,44,.95);border:1px solid rgba(46,230,168,.5);color:#bff5e3;font:600 15px Inter,sans-serif;transition:opacity .3s';document.body.appendChild(t)}
+  t.textContent=msg;t.style.opacity=1;clearTimeout(toastT);toastT=setTimeout(()=>t.style.opacity=0,1600)}
+function liveUI(){
+  const btn=document.getElementById('liveBtn');if(btn)btn.classList.toggle('on',!!live.topic);
+  const chip=document.getElementById('liveChip');
+  if(chip){if(!live.topic)chip.innerHTML='';
+    else if(ROLE==='trainer'){const sl=slides[cur];let ans=0;polls.forEach(p=>{if(sl&&sl.contains(p.el))ans=Math.max(ans,p.total||0)});chip.innerHTML='<span class="lchip"><i></i>LIVE · '+live.code+' · '+live.people.size+' joined'+(ans?' · '+ans+' answered':'')+'</span>'}
+    else chip.innerHTML='<span class="lchip"><i></i>LIVE · '+live.code+' · '+(live.follow?'Following presenter':'Tap to follow presenter')+'</span>';
+    const c=chip.querySelector('.lchip');if(c)c.onclick=()=>{if(ROLE==='trainer')liveModal(true);else{live.follow=!live.follow;if(live.follow&&live.lastGo)applyGo(live.lastGo);liveUI()}}}
+  const pe=document.getElementById('lvPeople');if(pe)pe.textContent=live.people.size+' joined';
+  if(typeof renderVPanel==='function')renderVPanel();
+}
+function loadQR(cb){if(window.QRCode)return cb();const sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';sc.onload=cb;sc.onerror=()=>{const q=document.getElementById('lvQR');if(q)q.textContent='QR code needs an internet connection'};document.head.appendChild(sc)}
+function liveModal(open){const m=document.getElementById('liveModal');if(!m)return;const o=open===undefined?!m.classList.contains('open'):open;m.classList.toggle('open',o);if(o)renderModal()}
+function renderModal(){
+  const c=document.getElementById('liveCard');const host=SITE_URL.replace(/^https?:\/\//,'').replace(/\/$/,'');
+  if(ROLE==='trainer'){
+    if(!live.topic){c.innerHTML='<div><span class="eyebrow"><b></b>Live quiz</span><h2>Run a live quiz</h2><p>Attendees open the presentation on their phone or laptop and answer every quiz, true/false card and poll. Results fill in on your slides as answers arrive. Answers are anonymous.</p><div class="lrow"><button class="lbtn pri" id="lvStart">Start live session</button><button class="lbtn" id="lvClose">Close</button></div><p class="lnote">Shortcuts: L opens this panel · R hides/shows results</p></div>';
+      c.querySelector('#lvStart').onclick=()=>{const code=rid(5);lsSet('jh_live',JSON.stringify({c:code,t:Date.now()}));liveConnect(code);renderModal()}}
+    else{const url=SITE_URL+'?live='+live.code;
+      c.innerHTML='<div><span class="eyebrow"><b></b>Live quiz</span><h2>Join on your phone</h2><div class="lurl">'+host+'</div><div class="lcode-l">CODE</div><div class="lcode">'+live.code+'</div><div class="lmeta" id="lvPeople">'+live.people.size+' joined</div><div class="lrow"><button class="lbtn pri" id="lvClose">Back to slides</button><button class="lbtn" id="lvCopy">'+ICON_COPY+' Copy join link</button><button class="lbtn danger" id="lvEnd">End session</button></div></div><div class="lqr" id="lvQR"></div>';
+      c.querySelector('#lvCopy').onclick=e=>copyText(url,e.currentTarget);
+      c.querySelector('#lvEnd').onclick=()=>{if(!confirm('End the live session for everyone?'))return;liveSend({k:'end'},'c');lsSet('jh_live',null);liveDisconnect();renderModal()};
+      loadQR(()=>{const q=document.getElementById('lvQR');if(!q||!window.QRCode)return;q.innerHTML='';new QRCode(q,{text:url,width:220,height:220,colorDark:'#0b0819',colorLight:'#ffffff'})})}
+  }else{
+    if(!live.topic){c.innerHTML='<div style="grid-column:1/-1"><span class="eyebrow"><b></b>Live quiz</span><h2>Join the live quiz</h2><p>Enter the code shown on the presenter\'s screen. Your answers are anonymous.</p><input class="linput" id="lvCode" maxlength="6" placeholder="CODE" autocomplete="off"><div class="lerr" id="lvErr"></div><div class="lrow"><button class="lbtn pri" id="lvJoin">Join</button><button class="lbtn" id="lvClose">Close</button></div></div>';
+      const inp=c.querySelector('#lvCode');setTimeout(()=>inp.focus(),50);
+      const join=()=>{const v=inp.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');if(v.length<4){c.querySelector('#lvErr').textContent='Enter the code from the presenter\'s screen';return}lsSet('jh_join',JSON.stringify({c:v,t:Date.now()}));liveConnect(v);liveModal(false);liveToast('Joined · answers go live to the presenter')};
+      c.querySelector('#lvJoin').onclick=join;inp.addEventListener('keydown',e=>{if(e.key==='Enter')join()})}
+    else{c.innerHTML='<div style="grid-column:1/-1"><span class="eyebrow"><b></b>Live quiz</span><h2>You\'re in · '+live.code+'</h2><p>Answer quizzes as they come up. Your screen follows the presenter; tap the LIVE chip at the bottom to pause or resume.</p><div class="lrow"><button class="lbtn pri" id="lvClose">Back to slides</button><button class="lbtn danger" id="lvLeave">Leave session</button></div></div>';
+      c.querySelector('#lvLeave').onclick=()=>{lsSet('jh_join',null);liveDisconnect();renderModal()}}
+  }
+  const cl=c.querySelector('#lvClose');if(cl)cl.onclick=()=>liveModal(false);
+}
+
+/* ---------- phone answer panel (viewer) ---------- */
+var vpMin=false;
+function optLabel(p,i){const o=p.opts[i];if(p.kind==='hunt')return(o.querySelector('h3')||o).textContent.trim();if(p.kind==='ab')return i?'B (the specific one)':'A (the vague one)';
+  const c=o.cloneNode(true);c.querySelectorAll('.lbar,.lcnt').forEach(x=>x.remove());const l=c.querySelector('.l');return (l?l.textContent.trim()+'  ':'')+(l?(l.remove(),c.textContent.trim()):c.textContent.trim())}
+function pollQ(p){const sl=p.el.closest('.slide');if(p.kind==='quiz')return(sl.querySelector('.qtext')||{}).textContent||'';if(p.kind==='tf'){const f=p.el.querySelector('.f').cloneNode(true);const sm=f.querySelector('small');if(sm)sm.remove();return 'True or false: '+f.textContent.trim()}
+  if(p.kind==='qt')return(p.el.querySelector('span')||{}).textContent||'';if(p.kind==='hunt')return 'Which job hunter are you?';if(p.kind==='ab')return 'Which one sounds stronger?';return ''}
+function renderVPanel(){
+  const el=document.getElementById('vpanel');if(!el)return;
+  const small=innerWidth<900||innerHeight<560;
+  const sl=mode.kind==='slide'?slides[cur]:null;const ps=sl?polls.filter(p=>sl.contains(p.el)):[];
+  if(ROLE!=='viewer'||!live.topic||!small||!ps.length){el.classList.remove('on');return}
+  el.classList.add('on');
+  if(vpMin){el.innerHTML='<div class="vp-h"><span>LIVE QUIZ · '+ps.length+' question'+(ps.length>1?'s':'')+'</span><button class="vp-min" id="vpT">Show ▲</button></div>'}
+  else{let h='<div class="vp-h"><span>ANSWER HERE · '+live.code+'</span><button class="vp-min" id="vpT">Hide ▼</button></div>';
+    ps.forEach((p,pi)=>{h+='<div class="vp-q">'+esc(pollQ(p))+'</div><div class="vp-o">';p.opts.forEach((o,i)=>{let c=o.classList.contains('picked')?'picked':'';if(live.rev[p.id]&&p.kind!=='hunt'){if(i===p.correct)c='right';else if(live.mine[p.id]===i)c='wrongp'}h+='<button class="'+c+'" data-p="'+pi+'" data-i="'+i+'">'+esc(optLabel(p,i))+'</button>'});h+='</div>'});
+    el.innerHTML=h;el.querySelectorAll('.vp-o button').forEach(b=>b.onclick=ev=>{const p=ps[+b.dataset.p];optClick(p,+b.dataset.i,ev);renderVPanel()})}
+  const t=el.querySelector('#vpT');if(t)t.onclick=()=>{vpMin=!vpMin;renderVPanel()};
+}
+addEventListener('resize',()=>renderVPanel());
+function liveAuto(){
+  document.getElementById('liveModal').addEventListener('click',e=>{if(e.target.id==='liveModal')liveModal(false)});
+  document.getElementById('liveBtn').onclick=e=>{e.stopPropagation();liveModal()};
+  document.getElementById('bGuide').onclick=()=>window.open(SITE_URL+'guide.html','_blank');
+  const fresh=v=>{try{const o=JSON.parse(v||'null');return o&&Date.now()-o.t<10*3600e3?o.c:null}catch(e){return null}};
+  if(ROLE==='trainer'){const c=fresh(lsGet('jh_live'));if(c)liveConnect(c)}
+  else{const q=new URLSearchParams(location.search).get('live');const c=q?q.toUpperCase():fresh(lsGet('jh_join'));if(c){lsSet('jh_join',JSON.stringify({c,t:Date.now()}));liveConnect(c);if(q)setTimeout(()=>liveToast('Joined live session '+c),1200)}}
+  liveUI();
+}
 buildCanvas();
+liveSetup();liveAuto();
 document.getElementById('mapbtn').onclick=()=>{if(mode.kind==='map')go(cur);else showMap()};
 const h=parseInt(location.hash.slice(1));
 applyCam(camMap());mode={kind:'map'};document.body.classList.add('zoomed');

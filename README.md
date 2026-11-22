@@ -1,12 +1,21 @@
 # Job Hunting & Job Application using AI
 
-An interactive, Prezi-style presentation for a be10x live workshop on using AI tools for job hunting, interview prep, contact discovery and applications.
+An interactive, Prezi-style presentation for a be10x live workshop on using AI for job hunting: the best specialist tool for each job, then Claude as the all-rounder.
 
 **Trainer:** Abhinaya Nair
 
-## View it
+## Links
 
-Open `index.html` in Chrome, or visit the GitHub Pages link for this repository.
+- **Presentation (attendees):** https://abhinayaanair.github.io/job-hunting-ai/
+- **Session guide** (every link, prompt and the Claude plugin list): https://abhinayaanair.github.io/job-hunting-ai/guide.html
+- **Trainer view** (hosts the live quiz): https://abhinayaanair.github.io/job-hunting-ai/trainer.html
+
+## Live quiz
+
+1. Open the trainer view and press **L** (or the radio-tower button) → **Start live session**.
+2. Attendees open the presentation link, press **L** and type the code, or scan the QR code.
+3. Their answers to quizzes, true/false cards and polls fill in on your slides live. Their screens follow your slides.
+4. Press **R** to hide or show results. Answers are anonymous and pass through the free ntfy.sh relay.
 
 ## Controls
 
@@ -17,13 +26,12 @@ Open `index.html` in Chrome, or visit the GitHub Pages link for this repository.
 | O or M | Zoom out to the full map (press again to return) |
 | Click a slide or island | Fly straight to it |
 | G | List of all slides |
+| L | Live quiz panel |
 | F | Fullscreen |
-| T | Activity timer (on the LinkedIn activity slide) |
-| C | Start / pause the countdown (clock button, bottom right) |
 
 ## Files
 
-- `index.html`: the whole presentation (HTML, CSS and JavaScript in one file)
-- `assets/hero-loop.webm`: the animated title-slide loop
-
-Best viewed in a recent version of Chrome on a laptop or desktop.
+- `index.html`: the presentation for attendees
+- `trainer.html`: the same presentation with live-quiz hosting
+- `guide.html`: the session guide handout
+- `assets/`: title animation and the Claude plugins spreadsheet
