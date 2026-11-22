@@ -8,11 +8,10 @@ An interactive, Prezi-style presentation for a be10x live workshop on using AI f
 
 - **Presentation (attendees):** https://abhinayaanair.github.io/job-hunting-ai/
 - **Session guide** (every link, prompt and the Claude plugin list): https://abhinayaanair.github.io/job-hunting-ai/guide.html
-- **Trainer view** (hosts the live quiz): https://abhinayaanair.github.io/job-hunting-ai/trainer.html
 
 ## Live quiz
 
-1. Open the trainer view and press **L** (or the radio-tower button) → **Start live session**.
+1. Open the trainer view (link kept private) and press **L** (or the radio-tower button) → **Start live session**.
 2. Attendees open the presentation link, press **L** and type the code, or scan the QR code.
 3. Their answers to quizzes, true/false cards and polls fill in on your slides live. Their screens follow your slides.
 4. Press **R** to hide or show results. Answers are anonymous and pass through the free ntfy.sh relay.
@@ -32,6 +31,5 @@ An interactive, Prezi-style presentation for a be10x live workshop on using AI f
 ## Files
 
 - `index.html`: the presentation for attendees
-- `trainer.html`: the same presentation with live-quiz hosting
 - `guide.html`: the session guide handout
 - `assets/`: title animation and the Claude plugins spreadsheet
