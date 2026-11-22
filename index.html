@@ -722,6 +722,33 @@ body.kit-open #kitTab{display:none}
 .tlinks{display:flex;gap:10px;flex-wrap:wrap}
 .card .tlink{margin-top:14px;font-size:15px}
 a.il{color:#9fd8ff;text-decoration:underline;text-underline-offset:3px}
+
+/* about the trainer */
+.about{display:grid;grid-template-columns:400px 1fr 230px;gap:46px;align-items:center;height:100%}
+.ab-photo{position:relative}
+.ab-frame{border-radius:34px;padding:5px;background:linear-gradient(150deg,var(--amber),var(--pink) 45%,var(--violet));box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 90px rgba(255,95,162,.35)}
+.ab-frame img{display:block;width:100%;height:520px;object-fit:cover;border-radius:30px}
+.ab-badge{position:absolute;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:99px;background:rgba(18,14,40,.92);border:1px solid rgba(255,255,255,.2);font:700 15px var(--body);box-shadow:0 14px 30px rgba(0,0,0,.45);white-space:nowrap}
+.ab-badge .lucide{color:var(--amber)}
+.ab-badge.b1{left:-26px;top:36px}.ab-badge.b2{right:-30px;top:44%}.ab-badge.b3{left:-18px;bottom:40px}
+.slide.active .ab-badge{animation:bob 4.5s ease-in-out infinite}.slide.active .ab-badge.b2{animation-delay:-1.5s}.slide.active .ab-badge.b3{animation-delay:-3s}
+.ab-name{font-size:84px;margin-top:16px}
+.ab-role{font:600 24px var(--body);color:var(--mute);margin-top:10px}
+.ab-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.ab-st{padding:16px 18px;border-radius:18px;background:var(--glass);border:1px solid var(--line)}
+.ab-st b{display:block;font:800 40px/1 var(--display);background:linear-gradient(100deg,var(--amber),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ab-st>span{display:block;margin-top:8px;font-size:14.5px;color:var(--mute);line-height:1.35}
+.ab-st b span{display:inline}
+.ab-points{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.ab-points>div{display:flex;gap:12px;align-items:flex-start;font-size:18px;line-height:1.45;color:var(--mute)}
+.ab-points b{color:var(--ink)}
+.ab-points .lucide{flex:none;color:var(--mint);font-size:20px;margin-top:3px}
+.ab-qr{display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px 18px;border-radius:26px;background:var(--glass2);border:1px solid rgba(255,255,255,.22);text-decoration:none;color:var(--ink)}
+.ab-qr:hover{background:rgba(255,255,255,.16)}
+.qrbox{width:190px;height:190px;padding:12px;border-radius:16px;background:#fff}
+.qr-cap{display:flex;align-items:center;gap:8px;font:800 18px var(--display)}
+.qr-cap .lucide{color:var(--sky)}
+.qr-url{font:600 13.5px var(--body);color:#9fd8ff;text-align:center;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -737,6 +764,39 @@ a.il{color:#9fd8ff;text-decoration:underline;text-underline-offset:3px}
     <div class="byline r"><span class="bl-line"></span><div><small>Your trainer</small><b>ABHINAYA NAIR</b></div></div>
   </div>
   <div class="hero r pop"><video class="hero-vid" src="assets/hero-loop.webm" autoplay loop muted playsinline></video></div>
+</section>
+
+<!-- ABOUT ME -->
+<section class="slide m-violet" data-title="About your trainer" data-sec="Welcome">
+  <div class="about">
+    <div class="ab-photo r pop">
+      <div class="ab-frame"><img src="assets/abhinaya.jpg" alt="Abhinaya Nair"></div>
+      <span class="ab-badge b1"><svg class="lucide lucide-sparkles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /> </svg> AI Developer</span>
+      <span class="ab-badge b2"><svg class="lucide lucide-mic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 19v3" /> <path d="M19 10v2a7 7 0 0 1-14 0v-2" /> <rect x="9" y="2" width="6" height="13" rx="3" /> </svg> Host, by_outlier</span>
+      <span class="ab-badge b3"><svg class="lucide lucide-briefcase" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /> <rect width="20" height="14" x="2" y="6" rx="2" /> </svg> Founder, Growcial</span>
+    </div>
+    <div class="ab-body">
+      <span class="eyebrow r"><b></b>Your trainer</span>
+      <h2 class="r ab-name">Abhinaya <span class="grad">Nair</span></h2>
+      <p class="ab-role r">AI Developer &amp; AI Strategy Consultant · Corporate AI Trainer</p>
+      <div class="ab-stats">
+        <div class="ab-st r"><b><span class="count" data-to="4000">0</span>+</b><span>professionals trained</span></div>
+        <div class="ab-st r"><b><span class="count" data-to="30">0</span>+</b><span>corporate AI programs</span></div>
+        <div class="ab-st r"><b><span class="count" data-to="87">0</span>%</b><span>of CHROs at IISc shipped an AI solution in 60 days</span></div>
+      </div>
+      <div class="ab-points">
+        <div class="r"><svg class="lucide lucide-target" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /> </svg><span><b>AI Strategy Consultant &amp; Trainer at Truecaller</b>: audits workflows, trains teams, builds the AI products</span></div>
+        <div class="r"><svg class="lucide lucide-code" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m16 18 6-6-6-6" /> <path d="m8 6-6 6 6 6" /> </svg><span><b>Full-stack AI developer</b>: LangChain, RAG, fine-tuning, FastAPI, React (CGPA 9.91)</span></div>
+        <div class="r"><svg class="lucide lucide-users" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /> </svg><span><b>Trained leaders at</b> IISc · IIM Bangalore · IIT Delhi · BITS Pilani · IIIT Hyderabad</span></div>
+        <div class="r"><svg class="lucide lucide-building-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M10 12h4" /> <path d="M10 8h4" /> <path d="M14 21v-3a2 2 0 0 0-4 0v3" /> <path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /> <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /> </svg><span><b>Teams at</b> Truecaller · Lenskart · Walkaroo · Jindal Power · Lo Foods</span></div>
+      </div>
+    </div>
+    <a class="ab-qr r pop" href="https://www.linkedin.com/in/abhinayanair/" target="_blank" rel="noopener">
+      <div class="qrbox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges" style="width:100%;height:100%;display:block" class="segno"><path class="qrline" stroke="#0b0819" d="M0 0.5h7m3 0h1m3 0h1m3 0h1m3 0h7m-29 1h1m5 0h1m1 0h1m2 0h1m1 0h2m1 0h2m2 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h1m3 0h1m3 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h2m2 0h2m2 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h2m1 0h1m3 0h5m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h1m5 0h1m5 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h4m2 0h1m4 0h2m-21 1h1m5 0h1m1 0h1m1 0h2m1 0h2m1 0h4m1 0h2m2 0h3m-25 1h3m2 0h1m1 0h1m1 0h4m1 0h4m2 0h2m1 0h2m-28 1h1m2 0h4m1 0h2m5 0h3m4 0h1m-23 1h2m1 0h2m3 0h1m5 0h1m4 0h2m2 0h1m1 0h1m-24 1h3m1 0h1m2 0h4m2 0h2m3 0h1m1 0h2m4 0h1m-28 1h1m2 0h1m3 0h1m2 0h1m2 0h7m1 0h1m1 0h1m2 0h2m-27 1h2m1 0h2m3 0h2m1 0h1m1 0h1m2 0h1m1 0h4m1 0h2m-25 1h1m7 0h2m2 0h2m4 0h5m1 0h1m1 0h1m-29 1h4m1 0h2m1 0h1m2 0h3m3 0h1m1 0h1m3 0h1m1 0h2m-27 1h2m2 0h1m4 0h1m2 0h2m1 0h6m1 0h3m1 0h3m-29 1h2m3 0h2m2 0h2m4 0h1m3 0h2m4 0h1m2 0h1m-29 1h1m1 0h3m3 0h1m2 0h2m1 0h1m3 0h1m1 0h1m1 0h3m-25 1h1m3 0h4m2 0h3m4 0h2m1 0h5m1 0h3m-21 1h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m3 0h2m-26 1h7m3 0h3m2 0h1m1 0h1m1 0h2m1 0h1m1 0h3m-27 1h1m5 0h1m2 0h1m2 0h1m6 0h2m3 0h1m2 0h1m-28 1h1m1 0h3m1 0h1m6 0h2m1 0h1m2 0h7m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h2m1 0h2m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h3m3 0h1m2 0h2m1 0h7m-28 1h1m5 0h1m2 0h1m2 0h1m2 0h2m6 0h1m1 0h2m1 0h1m-29 1h7m1 0h2m1 0h2m1 0h2m1 0h1m1 0h1m2 0h5"/></svg></div>
+      <span class="qr-cap"><svg class="lucide lucide-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /> </svg> Scan to connect</span>
+      <span class="qr-url">linkedin.com/in/abhinayanair</span>
+    </a>
+  </div>
 </section>
 
 <!-- 3 QUOTE -->
