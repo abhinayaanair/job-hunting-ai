@@ -1470,6 +1470,7 @@ function enter(s){
 /* ---------- navigation ---------- */
 function stepsOf(s){return [...s.querySelectorAll('[data-step]')]}
 function go(n,showAll){
+  if(typeof navLocked==='function'&&navLocked())return;
   n=Math.max(0,Math.min(slides.length-1,n));
   const pg=(typeof curGroup==='function'&&canvasReady)?curGroup():null;
   slides[cur].classList.remove('active');
@@ -1487,6 +1488,7 @@ function go(n,showAll){
 }
 function applyAB(s){const b=s.querySelector('#abB');if(b&&b.querySelector('[data-step].shown')){b.classList.add('won');s.querySelector('#abA').classList.add('lost')}}
 function next(){
+  if(typeof navLocked==='function'&&navLocked())return;
   if(mode.kind==='island'){go(groups[mode.k].idx[0]);return}
   if(mode.kind==='map'){go(cur);return}
   const s=slides[cur];
@@ -1500,6 +1502,7 @@ function next(){
   advance();
 }
 function prev(){
+  if(typeof navLocked==='function'&&navLocked())return;
   if(mode.kind!=='slide'){go(cur,true);return}
   const s=slides[cur];const shown=stepsOf(s).filter(e=>e.classList.contains('shown'));
   if(shown.length){const m=Math.max(...shown.map(e=>+e.dataset.step));shown.filter(e=>+e.dataset.step===m).forEach(e=>e.classList.remove('shown'));s.querySelectorAll('.abc').forEach(a=>a.classList.remove('won','lost'));applyAB(s);ui();return}
@@ -1536,7 +1539,7 @@ function loop(){cx.clearRect(0,0,cv.width,cv.height);parts.forEach(p=>{p.vy+=.45
 /* ---------- UI ---------- */
 const glist=document.getElementById('glist');
 slides.forEach((s,i)=>{const li=document.createElement('li');const b=document.createElement('button');b.innerHTML='<small>'+(i+1)+' · '+s.dataset.sec+'</small>'+s.dataset.title;b.onclick=()=>{go(i);grid(false)};li.appendChild(b);glist.appendChild(li)});
-function grid(on){const g=document.getElementById('grid');g.classList.toggle('on',on===undefined?!g.classList.contains('on'):on);[...glist.querySelectorAll('button')].forEach((b,i)=>b.classList.toggle('cur',i===cur))}
+function grid(on){if(on!==false&&typeof navLocked==='function'&&navLocked())return;const g=document.getElementById('grid');g.classList.toggle('on',on===undefined?!g.classList.contains('on'):on);[...glist.querySelectorAll('button')].forEach((b,i)=>b.classList.toggle('cur',i===cur))}
 function ui(){
   if(typeof liveBroadcastPos==='function')liveBroadcastPos();
   if(canvasReady){const cg=curGroup();groups.forEach((g,i)=>g.el&&g.el.classList.toggle('cur',i===cg))}
@@ -1659,11 +1662,11 @@ function flyTo(B,done,M,direct){
   // give a newly created layer one frame to rasterise before it starts moving
   flyAnim=wantLayer&&!hadLayer?requestAnimationFrame(()=>{flyAnim=requestAnimationFrame(step)}):requestAnimationFrame(step);
 }
-function showIsland(k){const pg=curGroup();slides[cur].classList.remove('active');mode={kind:'island',k};document.body.classList.add('zoomed');flyTo(camIsland(k),null,(pg!==null&&pg!==k)?camFrame(circleOf(pg),circleOf(k)):null);ui()}
+function showIsland(k){if(navLocked())return;const pg=curGroup();slides[cur].classList.remove('active');mode={kind:'island',k};document.body.classList.add('zoomed');flyTo(camIsland(k),null,(pg!==null&&pg!==k)?camFrame(circleOf(pg),circleOf(k)):null);ui()}
 function curGroup(){return mode.kind==='island'?mode.k:mode.kind==='slide'?slideInfo[cur].g:null}
 function circleOf(g){return g===-1?{x:0,y:0,r:1500}:{x:groups[g].cx,y:groups[g].cy,r:groups[g].r}}
 function camFrame(a,b){const minx=Math.min(a.x-a.r,b.x-b.r),maxx=Math.max(a.x+a.r,b.x+b.r),miny=Math.min(a.y-a.r,b.y-b.r),maxy=Math.max(a.y+a.r,b.y+b.r);return{x:(minx+maxx)/2,y:(miny+maxy)/2,r:0,s:Math.min(innerWidth/((maxx-minx)*1.18),innerHeight/((maxy-miny)*1.18))}}
-function showMap(){mode={kind:'map'};document.body.classList.add('zoomed');flyTo(camMap());ui()}
+function showMap(){if(navLocked())return;mode={kind:'map'};document.body.classList.add('zoomed');flyTo(camMap());ui()}
 function advance(){const n=cur+1;if(n>=slides.length)return;const gn=slideInfo[n].g,gc=slideInfo[cur].g;if(gn!==gc&&gn>=0)showIsland(gn);else go(n)}
 
 
@@ -1677,6 +1680,7 @@ addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.tar
   else if(k==='t'||k==='T')tToggle();
   else if(k==='c'||k==='C')cdToggle();
   else if(k==='l'||k==='L')liveModal();
+  else if((k==='k'||k==='K')&&ROLE==='trainer'&&live.topic)liveSetLock(!live.lock);
   else if((k==='r'||k==='R')&&ROLE==='trainer')document.body.classList.toggle('hide-results');});
 setTimeout(()=>document.getElementById('help').style.opacity=0,5000);
 
@@ -1714,7 +1718,10 @@ cdDraw();
 /* ---------- LIVE QUIZ (Mentimeter-style) ---------- */
 var ROLE=document.documentElement.dataset.role||'trainer';
 var RELAY='https://ntfy.sh/', SITE_URL='https://abhinayaanair.github.io/job-hunting-ai/';
-var live={code:null,topic:null,es:null,uid:null,votes:{},people:new Set(),rev:{},follow:true,mine:{},replay:false,goBuf:null,lastGo:null,applying:false,lastSent:null,sendT:null,lastR:0};
+var live={code:null,topic:null,es:null,uid:null,votes:{},people:new Set(),rev:{},follow:true,mine:{},replay:false,goBuf:null,lastGo:null,applying:false,lastSent:null,sendT:null,lastR:0,lock:true,locked:true,lastLockToast:0};
+function navLocked(){if(ROLE!=='viewer'||!live||!live.topic||!live.locked||live.applying)return false;if(Date.now()-live.lastLockToast>1500){live.lastLockToast=Date.now();liveToast('The presenter is controlling the slides')}return true}
+function stepCount(s){const st=stepsOf(s);return new Set(st.filter(e=>e.classList.contains('shown')).map(e=>e.dataset.step)).size}
+function applySteps(s,n){const vals=[...new Set(stepsOf(s).map(e=>+e.dataset.step))].sort((a,b)=>a-b);const on=new Set(vals.slice(0,n));stepsOf(s).forEach(e=>e.classList.toggle('shown',on.has(+e.dataset.step)));s.querySelectorAll('.abc').forEach(a=>a.classList.remove('won','lost'));applyAB(s);if(typeof liveSteps==='function')liveSteps(s)}
 var polls=[],pollMap={};
 function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function lsSet(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}
@@ -1724,32 +1731,33 @@ function topicFor(c){return 'be10x-jh-'+String(c).toLowerCase()}
 function liveSend(obj,tag){if(!live.topic)return;fetch(RELAY+live.topic+'?tags='+tag,{method:'POST',body:JSON.stringify(obj)}).catch(()=>{})}
 function liveConnect(code){
   if(live.es){live.es.close();live.es=null}
-  live.code=code;live.topic=topicFor(code);live.votes={};live.people=new Set();live.rev={};live.mine={};live.follow=true;
+  live.code=code;live.topic=topicFor(code);live.votes={};live.people=new Set();live.rev={};live.mine={};live.follow=true;live.locked=true;
   live.replay=true;live.goBuf=null;
-  setTimeout(()=>{live.replay=false;if(ROLE==='viewer'&&live.goBuf&&live.follow)applyGo(live.goBuf);live.goBuf=null},1600);
+  setTimeout(()=>{live.replay=false;if(ROLE==='viewer'&&live.goBuf&&(live.follow||live.locked))applyGo(live.goBuf);live.goBuf=null},1600);
   const es=new EventSource(RELAY+live.topic+'/sse?since=all'+(ROLE==='viewer'?'&tags=c':''));live.es=es;
   es.onmessage=ev=>{let d,m;try{d=JSON.parse(ev.data)}catch(e){return}if(d.event&&d.event!=='message')return;try{m=JSON.parse(d.message)}catch(e){return}liveOn(m,d.time||0)};
   if(ROLE==='viewer')liveSend({k:'j',u:live.uid},'j');
-  else{live.lastSent=null;setTimeout(()=>{live.lastSent=null;liveBroadcastPos()},400)}
+  else{live.lastSent=null;setTimeout(()=>{liveSend({k:'lock',v:live.lock},'c');live.lastSent=null;liveBroadcastPos()},400)}
   polls.forEach(renderPoll);liveUI();
 }
 function liveDisconnect(){if(live.es){live.es.close();live.es=null}live.code=null;live.topic=null;polls.forEach(p=>{p.opts.forEach(o=>o.classList.remove('picked'));renderPoll(p)});liveUI()}
 function liveOn(m,t){
   const fresh=(Date.now()/1000-t)<10;
   if(ROLE==='trainer'){
-    if(m.k==='j'&&m.u){const isNew=!live.people.has(m.u);live.people.add(m.u);liveUI();if(isNew&&fresh){live.lastSent=null;liveBroadcastPos()}}
+    if(m.k==='j'&&m.u){const isNew=!live.people.has(m.u);live.people.add(m.u);liveUI();if(isNew&&fresh){liveSend({k:'lock',v:live.lock},'c');live.lastSent=null;liveBroadcastPos()}}
     else if(m.k==='v'&&pollMap[m.p]&&m.u){(live.votes[m.p]=live.votes[m.p]||{})[m.u]=m.o;live.people.add(m.u);renderPoll(pollMap[m.p]);liveUI()}
     else if(m.k==='r'&&fresh)floatReaction(m.e);
   }else{
     if(m.k==='rev'&&pollMap[m.p]){live.rev[m.p]=1;applyRev(pollMap[m.p],live.replay);renderVPanel()}
-    else if(m.k==='go'||m.k==='isl'){live.lastGo=m;if(live.replay)live.goBuf=m;else if(live.follow)applyGo(m)}
+    else if(m.k==='lock'){live.locked=!!m.v;if(live.locked){live.follow=true;if(!live.replay&&live.lastGo)applyGo(live.lastGo)}liveUI();if(!live.replay)liveToast(live.locked?'The presenter is guiding the slides':'You can now browse the slides freely')}
+    else if(m.k==='go'||m.k==='isl'){live.lastGo=m;if(live.replay)live.goBuf=m;else if(live.follow||live.locked)applyGo(m)}
     else if(m.k==='end'&&!live.replay){lsSet('jh_join',null);liveDisconnect();liveToast('The presenter ended the live session')}
   }
 }
-function applyGo(m){live.applying=true;try{if(m.k==='go'&&m.i!==cur||mode.kind!=='slide'&&m.k==='go')go(m.i);else if(m.k==='isl'&&!(mode.kind==='island'&&mode.k===m.g))showIsland(m.g)}finally{live.applying=false}}
+function applyGo(m){live.applying=true;try{if(m.k==='go'){if(m.i!==cur||mode.kind!=='slide')go(m.i);if(m.st!=null)applySteps(slides[m.i],m.st)}else if(m.k==='isl'&&!(mode.kind==='island'&&mode.k===m.g))showIsland(m.g)}finally{live.applying=false}renderVPanel()}
 function liveBroadcastPos(){
   if(!live||!live.topic)return;
-  if(ROLE==='trainer'){liveUI();clearTimeout(live.sendT);live.sendT=setTimeout(()=>{const m=mode.kind==='island'?{k:'isl',g:mode.k}:mode.kind==='slide'?{k:'go',i:cur}:null;if(!m)return;const key=JSON.stringify(m);if(key===live.lastSent)return;live.lastSent=key;liveSend(m,'c')},700)}
+  if(ROLE==='trainer'){liveUI();clearTimeout(live.sendT);live.sendT=setTimeout(()=>{const m=mode.kind==='island'?{k:'isl',g:mode.k}:mode.kind==='slide'?{k:'go',i:cur,st:stepCount(slides[cur])}:null;if(!m)return;const key=JSON.stringify(m);if(key===live.lastSent)return;live.lastSent=key;liveSend(m,'c')},350)}
   else{renderVPanel()}
   if(ROLE==='viewer'&&!live.applying&&live.follow&&!live.replay&&canvasReady){const g=live.lastGo;const same=g&&((g.k==='go'&&mode.kind==='slide'&&g.i===cur)||(g.k==='isl'&&mode.kind==='island'&&g.g===mode.k));if(!same){live.follow=false;liveUI()}}
 }
@@ -1815,9 +1823,9 @@ function liveUI(){
   const btn=document.getElementById('liveBtn');if(btn)btn.classList.toggle('on',!!live.topic);
   const chip=document.getElementById('liveChip');
   if(chip){if(!live.topic)chip.innerHTML='';
-    else if(ROLE==='trainer'){const sl=slides[cur];let ans=0;polls.forEach(p=>{if(sl&&sl.contains(p.el))ans=Math.max(ans,p.total||0)});chip.innerHTML='<span class="lchip"><i></i>LIVE · '+live.code+' · '+live.people.size+' joined'+(ans?' · '+ans+' answered':'')+'</span>'}
-    else chip.innerHTML='<span class="lchip"><i></i>LIVE · '+live.code+' · '+(live.follow?'Following presenter':'Tap to follow presenter')+'</span>';
-    const c=chip.querySelector('.lchip');if(c)c.onclick=()=>{if(ROLE==='trainer')liveModal(true);else{live.follow=!live.follow;if(live.follow&&live.lastGo)applyGo(live.lastGo);liveUI()}}}
+    else if(ROLE==='trainer'){const sl=slides[cur];let ans=0;polls.forEach(p=>{if(sl&&sl.contains(p.el))ans=Math.max(ans,p.total||0)});chip.innerHTML='<span class="lchip"><i></i>LIVE · '+live.code+' · '+live.people.size+' joined'+(ans?' · '+ans+' answered':'')+' · '+(live.lock?'🔒 locked':'🔓 free')+'</span>'}
+    else chip.innerHTML='<span class="lchip"><i></i>LIVE · '+live.code+' · '+(live.locked?'🔒 Presenter is guiding':live.follow?'Following presenter':'Tap to follow presenter')+'</span>';
+    const c=chip.querySelector('.lchip');if(c)c.onclick=()=>{if(ROLE==='trainer')liveModal(true);else if(live.locked)liveToast('The presenter is controlling the slides');else{live.follow=!live.follow;if(live.follow&&live.lastGo)applyGo(live.lastGo);liveUI()}}}
   const pe=document.getElementById('lvPeople');if(pe)pe.textContent=live.people.size+' joined';
   if(typeof renderVPanel==='function')renderVPanel();
 }
@@ -1829,8 +1837,9 @@ function renderModal(){
     if(!live.topic){c.innerHTML='<div><span class="eyebrow"><b></b>Live quiz</span><h2>Run a live quiz</h2><p>Attendees open the presentation on their phone or laptop and answer every quiz, true/false card and poll. Results fill in on your slides as answers arrive. Answers are anonymous.</p><div class="lrow"><button class="lbtn pri" id="lvStart">Start live session</button><button class="lbtn" id="lvClose">Close</button></div><p class="lnote">Shortcuts: L opens this panel · R hides/shows results</p></div>';
       c.querySelector('#lvStart').onclick=()=>{const code=rid(5);lsSet('jh_live',JSON.stringify({c:code,t:Date.now()}));liveConnect(code);renderModal()}}
     else{const url=SITE_URL+'?live='+live.code;
-      c.innerHTML='<div><span class="eyebrow"><b></b>Live quiz</span><h2>Join on your phone</h2><div class="lurl">'+host+'</div><div class="lcode-l">CODE</div><div class="lcode">'+live.code+'</div><div class="lmeta" id="lvPeople">'+live.people.size+' joined</div><div class="lrow"><button class="lbtn pri" id="lvClose">Back to slides</button><button class="lbtn" id="lvCopy">'+ICON_COPY+' Copy join link</button><button class="lbtn danger" id="lvEnd">End session</button></div></div><div class="lqr" id="lvQR"></div>';
+      c.innerHTML='<div><span class="eyebrow"><b></b>Live quiz</span><h2>Join on your phone</h2><div class="lurl">'+host+'</div><div class="lcode-l">CODE</div><div class="lcode">'+live.code+'</div><div class="lmeta" id="lvPeople">'+live.people.size+' joined</div><div class="lrow"><button class="lbtn pri" id="lvClose">Back to slides</button><button class="lbtn" id="lvLock">'+lockLabel()+'</button><button class="lbtn" id="lvCopy">'+ICON_COPY+' Copy join link</button><button class="lbtn danger" id="lvEnd">End session</button></div></div><div class="lqr" id="lvQR"></div>';
       c.querySelector('#lvCopy').onclick=e=>copyText(url,e.currentTarget);
+      c.querySelector('#lvLock').onclick=()=>liveSetLock(!live.lock);
       c.querySelector('#lvEnd').onclick=()=>{if(!confirm('End the live session for everyone?'))return;liveSend({k:'end'},'c');lsSet('jh_live',null);liveDisconnect();renderModal()};
       loadQR(()=>{const q=document.getElementById('lvQR');if(!q||!window.QRCode)return;q.innerHTML='';new QRCode(q,{text:url,width:220,height:220,colorDark:'#0b0819',colorLight:'#ffffff'})})}
   }else{
@@ -1838,7 +1847,7 @@ function renderModal(){
       const inp=c.querySelector('#lvCode');setTimeout(()=>inp.focus(),50);
       const join=()=>{const v=inp.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');if(v.length<4){c.querySelector('#lvErr').textContent='Enter the code from the presenter\'s screen';return}lsSet('jh_join',JSON.stringify({c:v,t:Date.now()}));liveConnect(v);liveModal(false);liveToast('Joined · answers go live to the presenter')};
       c.querySelector('#lvJoin').onclick=join;inp.addEventListener('keydown',e=>{if(e.key==='Enter')join()})}
-    else{c.innerHTML='<div style="grid-column:1/-1"><span class="eyebrow"><b></b>Live quiz</span><h2>You\'re in · '+live.code+'</h2><p>Answer quizzes as they come up. Your screen follows the presenter; tap the LIVE chip at the bottom to pause or resume.</p><div class="lrow"><button class="lbtn pri" id="lvClose">Back to slides</button><button class="lbtn danger" id="lvLeave">Leave session</button></div></div>';
+    else{c.innerHTML='<div style="grid-column:1/-1"><span class="eyebrow"><b></b>Live quiz</span><h2>You\'re in · '+live.code+'</h2><p>Answer quizzes as they come up. The presenter guides the slides; when they unlock browsing you can move around freely.</p><div class="lrow"><button class="lbtn pri" id="lvClose">Back to slides</button><button class="lbtn danger" id="lvLeave">Leave session</button></div></div>';
       c.querySelector('#lvLeave').onclick=()=>{lsSet('jh_join',null);liveDisconnect();renderModal()}}
   }
   const cl=c.querySelector('#lvClose');if(cl)cl.onclick=()=>liveModal(false);
@@ -1863,6 +1872,8 @@ function renderVPanel(){
   const t=el.querySelector('#vpT');if(t)t.onclick=()=>{vpMin=!vpMin;renderVPanel()};
 }
 addEventListener('resize',()=>renderVPanel());
+function liveSetLock(v){live.lock=v;if(live.topic){liveSend({k:'lock',v},'c');if(v){live.lastSent=null;liveBroadcastPos()}}liveUI();const b=document.getElementById('lvLock');if(b)b.innerHTML=lockLabel();liveToast(v?'Attendees locked to your slides':'Attendees can browse freely')}
+function lockLabel(){return live.lock?'🔒 Attendees: locked to my slides':'🔓 Attendees: free to browse'}
 function liveAuto(){
   document.getElementById('liveModal').addEventListener('click',e=>{if(e.target.id==='liveModal')liveModal(false)});
   document.getElementById('liveBtn').onclick=e=>{e.stopPropagation();liveModal()};
@@ -1877,7 +1888,7 @@ liveSetup();liveAuto();
 document.getElementById('mapbtn').onclick=()=>{if(mode.kind==='map')go(cur);else showMap()};
 const h=parseInt(location.hash.slice(1));
 applyCam(camMap());mode={kind:'map'};document.body.classList.add('zoomed');
-setTimeout(()=>go(isNaN(h)?0:h-1),500);
+setTimeout(()=>{const a=live.applying;live.applying=true;try{go(isNaN(h)?0:h-1)}finally{live.applying=a}},500);
 
 
 function presenter(){}
